@@ -1,5 +1,6 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
 import { NavBar } from '../components/NavBar';
+import { Home } from '../components/Home';
 
 export const AppViews = () => {
   return (
@@ -13,7 +14,7 @@ export const AppViews = () => {
           </>
         }
       >
-        <Route path="home" element={<>hizo</>} />
+        <Route path="home" element={<Home />} />
       </Route>
     </Routes>
   );

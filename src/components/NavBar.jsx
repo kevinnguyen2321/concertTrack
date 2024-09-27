@@ -7,7 +7,7 @@ export const NavBar = () => {
       <h1>ConcertTrack</h1>
       <ul className="links-wrapper">
         <li>
-          <Link to={'/home'}>Home</Link>
+          <Link to={'/'}>Home</Link>
         </li>
 
         <li>

@@ -1,0 +1,85 @@
+NavBar.jsx 
+
+-Links to Home, Myshows,Community, and Logout componenets
+
+-Will persist through the app unless user is not logged in
+
+
+Home.jsx
+
+- Will have a welcome user message to the site and have a button
+to add a new concert post and when clicked will navigate user to
+new concert view
+
+
+NewConcert.jsx
+
+- Will render a new concert form with inputs for artist,
+date, genre, venue, rating and a add button
+
+-Will need to fetch genres (state) to use as select elements for users
+to select genre type
+
+-Once add button is clicked then the concert will be posted in concerts resource
+in database and user will be navigated to MyShows view.
+
+
+MyShows.jsx
+
+- Will display all of the users concerts posts on the page on cards
+-Cards will be clickable and once clicked will take user to the view concert
+view
+-If user clicks on edit then user will be navigated to edit concert view
+
+ViewConcert.jsx
+-Will display the concert post information and will use Spotify Web API
+to fetch image of artist
+-If user clicks on artist image user will be navigated to
+artist info
+
+
+ArtistInfo.jsx
+- Will fetch artist info by artist name from Spotify web API to display artist info
+such as genre,similar artists etc.
+
+-Will also fetch similar artist based on artist id
+
+
+EditConcert.jsx 
+
+-User can edit the inputs and once they hit save then the concert post
+will be updated via PUT method in database
+-Once successfully updated the user will be navigated back to the myShows view
+
+
+Community.jsx
+- This page will render all of the concert posts from concerts resource
+- If user clicks on a concert post they will be able to see it 
+in the view concert view
+-If the concert post belongs to the user then an edit and delete button will appear
+-Current user will be able to add comments via text input on a concert post
+-Comment will be stored in database in comments resource. 
+-Current user will be able to edit or delete their comment (PUT and DELETE requests)
+
+
+AppViews.jsx
+
+-Will handle routes for the app
+- ViewConcert route should user useParam for concertId in route
+- Maybe community should be parent route for viewConcert,editConcert, and myShows componenets?
+
+
+Login.jsx
+-Require email only to log in
+-Will use Honey Raes code
+
+-Register.jsx
+- Will require full name, email
+-Profile picture is optional
+-Will use honey raes code
+
+
+Logout.jsx
+-Once user clicks on logout link on navbar it will take them to the logout page
+with a button that if clicked will take them back to log in page?
+

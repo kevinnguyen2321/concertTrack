@@ -13,7 +13,7 @@ export const AppViews = () => {
           </>
         }
       >
-        <Route path="home" element={<>hiz</>} />
+        <Route path="home" element={<>hizo</>} />
       </Route>
     </Routes>
   );

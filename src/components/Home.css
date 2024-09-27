@@ -1,0 +1,11 @@
+.home-wrapper {
+  border: solid black;
+  width: 60%;
+  margin: 200px auto 0 auto;
+  text-align: center;
+  font-size: 1.8rem;
+}
+
+.new-concert-btn {
+  font-size: 1.5rem;
+}

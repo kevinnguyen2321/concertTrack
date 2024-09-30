@@ -31,7 +31,10 @@ export const AppViews = () => {
           path="new-concert"
           element={<NewConcert currentUser={currentUser} />}
         />
-        <Route path="my-shows" element={<MyShows />} />
+        <Route
+          path="my-shows"
+          element={<MyShows currentUser={currentUser} />}
+        />
       </Route>
     </Routes>
   );

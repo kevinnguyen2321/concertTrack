@@ -1,0 +1,24 @@
+.my-show-wrapper {
+  border: solid black;
+  display: flex;
+}
+
+.show-card {
+  border: dotted green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-picture-wrapper {
+  /* border: solid green; */
+  text-align: center;
+  border-radius: 15px;
+}
+
+.profile-picture-wrapper img {
+  width: 140px;
+  border: solid green;
+  border-radius: 8px;
+}

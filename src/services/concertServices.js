@@ -7,3 +7,9 @@ export const addNewConcert = (newPostObj) => {
     body: JSON.stringify(newPostObj),
   });
 };
+
+export const getConcertByUserIdAndExpandUser = (userId) => {
+  return fetch(
+    `http://localhost:8088/concerts?userId=${userId}&_expand=user`
+  ).then((res) => res.json());
+};

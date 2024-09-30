@@ -5,7 +5,7 @@ NavBar.jsx
 -Will persist through the app unless user is not logged in
 
 
-Home.jsx
+Home.jsx ✓
 
 - Will have a welcome user message to the site and have a button
 to add a new concert post and when clicked will navigate user to
@@ -19,6 +19,9 @@ date, genre, venue, rating and a add button
 
 -Will need to fetch genres (state) to use as select elements for users
 to select genre type
+
+-Need state for concert post object (on change events to update
+the state)
 
 -Once add button is clicked then the concert will be posted in concerts resource
 in database and user will be navigated to MyShows view.
@@ -69,11 +72,11 @@ AppViews.jsx
 - Maybe community should be parent route for viewConcert,editConcert, and myShows componenets?
 
 
-Login.jsx
+Login.jsx ✓
 -Require email only to log in
 -Will use Honey Raes code
 
--Register.jsx
+-Register.jsx ✓
 - Will require full name, email
 -Profile picture is optional
 -Will use honey raes code

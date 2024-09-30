@@ -76,13 +76,13 @@ Login.jsx ✓
 -Require email only to log in
 -Will use Honey Raes code
 
--Register.jsx ✓
+-Register.jsx 
 - Will require full name, email
 -Profile picture is optional
 -Will use honey raes code
 
 
-Logout.jsx
+Logout.jsx ✓
 -Once user clicks on logout link on navbar it will take them to the logout page
 with a button that if clicked will take them back to log in page?
 

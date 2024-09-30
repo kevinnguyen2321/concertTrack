@@ -42,5 +42,5 @@ Community components
 wants to delete their comment. (Community or MyShows)
 
 
-genreService.js
+genreService.js ✓
 -Will fetch all genres from genres in database

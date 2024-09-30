@@ -1,7 +1,8 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './NavBar.css';
 
 export const NavBar = () => {
+  const navigate = useNavigate();
   return (
     <div className="nav-bar-wrapper">
       <h1>ConcertTrack</h1>
@@ -11,16 +12,29 @@ export const NavBar = () => {
         </li>
 
         <li>
-          <Link to={'/myshows'}>MyShows</Link>
+          <Link to={'/my-shows'}>My Shows</Link>
         </li>
 
         <li>
           <Link to={'/community'}>Community</Link>
         </li>
 
-        <li>
-          <Link to={'/logout'}>Logout</Link>
-        </li>
+        {localStorage.getItem('concert_user') ? (
+          <li>
+            <Link
+              className="navbar-link"
+              to=""
+              onClick={() => {
+                localStorage.removeItem('concert_user');
+                navigate('/', { replace: true });
+              }}
+            >
+              Logout
+            </Link>
+          </li>
+        ) : (
+          ''
+        )}
       </ul>
     </div>
   );

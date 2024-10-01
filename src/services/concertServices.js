@@ -19,3 +19,13 @@ export const deleteConcert = (concertId) => {
     method: 'DELETE',
   });
 };
+
+export const updateConcert = (concert) => {
+  return fetch(`http://localhost:8088/concerts/${concert.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(concert),
+  });
+};

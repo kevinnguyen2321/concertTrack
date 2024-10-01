@@ -5,13 +5,23 @@ import {
 } from '../services/concertServices';
 import './MyShows.css';
 import { NewConcert } from './NewConcert';
+import { EditConcert } from './EditConcert';
+import {
+  getAllComments,
+  getCommentByConcertIdAndExpandUser,
+} from '../services/commentsServices';
 
 export const MyShows = ({ currentUser }) => {
   const [currentUserConcerts, setCurrentUserConcerts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEditModalOpen, setEditModal] = useState(false);
+  const [comments, setComments] = useState([]);
   //Functions to set state for new concert modal//
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+  //Functions to set state for edit modal//
+  const openEditModal = () => setEditModal(true);
+  const closeEditModal = () => setEditModal(false);
   //Function to fetch all concert posts for current user//
   const fetchAndSetAllCurrentUserConcerts = () => {
     getConcertByUserIdAndExpandUser(currentUser.id).then((concertsArr) =>
@@ -21,7 +31,9 @@ export const MyShows = ({ currentUser }) => {
   //Fetch all concert posts for current user on initial render//
   useEffect(() => {
     fetchAndSetAllCurrentUserConcerts();
+    getAllComments().then((commentsArr) => setComments(commentsArr));
   }, [currentUser]);
+
   //Function to format date to MM/DD/YYY format//
   const formatDate = (dateStr) => {
     const dateObj = new Date(dateStr);
@@ -38,6 +50,13 @@ export const MyShows = ({ currentUser }) => {
     deleteConcert(concertObj.id).then(() => {
       fetchAndSetAllCurrentUserConcerts();
     });
+  };
+
+  const filterCommentsByConcertId = (concertId) => {
+    const filteredComments = comments.filter(
+      (comment) => comment.concertId === concertId
+    );
+    console.log(filteredComments);
   };
 
   return (
@@ -60,7 +79,16 @@ export const MyShows = ({ currentUser }) => {
               </div>
               <div>Rating:{concert.rating}</div>
               <div className="comment-wrapper">
-                <button>Edit</button>
+                <button onClick={openEditModal}>Edit</button>
+                <EditConcert
+                  concertObj={concert}
+                  isEditModalOpen={isEditModalOpen}
+                  closeEditModal={closeEditModal}
+                  fetchAndSetAllCurrentUserConcerts={
+                    fetchAndSetAllCurrentUserConcerts
+                  }
+                />
+
                 <div className="textarea-wrapper">
                   <textarea placeholder="Add comment"></textarea>
                   <button className="post-btn">Post</button>
@@ -77,6 +105,7 @@ export const MyShows = ({ currentUser }) => {
           );
         })}
       </div>
+      {/* NewConcert modal will display if isModalOpen is set to true */}
       <NewConcert
         currentUser={currentUser}
         isModalOpen={isModalOpen}

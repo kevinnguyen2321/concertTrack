@@ -8,7 +8,7 @@ on userId) - used in MyShows.jsx ✓
 on concert Id) used in ViewConcert.jsx
 
 -Will have a function to do a PUT method to update any edited concert
-posts
+posts ✓
 
 -Will have a funciton to do a DELETE method that will take a concertId ✓
 
@@ -29,16 +29,13 @@ in an hour
 -Will also have fetch call to grab artist info based on artist name
 - Will have fetch call to grab similar artists based on artistId
 
--Encrypt token info for Web API (add to gitignore)
+-*Encrypt token info for Web API (add to gitignore) *
 
 
 
 commentService.js
 -Will have a fetch call to grab all comments to be used in MyShows &
 Community components
-
--Will have a PUT method function to handle edited comments
-(Community or MyShows)
 
 -Will have a DELETE method function to handle when a user
 wants to delete their comment. (Community or MyShows)

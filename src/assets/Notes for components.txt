@@ -33,6 +33,7 @@ MyShows.jsx
 -Cards will be clickable and once clicked will take user to the view concert
 view
 -If user clicks on edit then user will be navigated to edit concert view
+-If user clicks on delete button then the concert post will be deleted
 
 ViewConcert.jsx
 -Will display the concert post information and will use Spotify Web API

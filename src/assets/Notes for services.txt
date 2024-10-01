@@ -1,7 +1,7 @@
 concertServices.js
 -Will have a function to fetch concert post by userId 
 (gets concert post based
-on userId) - used in MyShows.jsx
+on userId) - used in MyShows.jsx ✓
 
 -Will have a function to fetch concert post by concertId 
 (gets the concert post based
@@ -10,10 +10,12 @@ on concert Id) used in ViewConcert.jsx
 -Will have a function to do a PUT method to update any edited concert
 posts
 
--Will have a funciton to do a DELETE method that will take a concertId
+-Will have a funciton to do a DELETE method that will take a concertId ✓
 
 Will have a function to fetch all concert posts to be used in
 Community.jsx
+
+-Will have a function to add new concert to concerts resource ✓
 
 
 

@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
-import { getConcertByUserIdAndExpandUser } from '../services/concertServices';
+import {
+  deleteConcert,
+  getConcertByUserIdAndExpandUser,
+} from '../services/concertServices';
 import './MyShows.css';
 import { NewConcert } from './NewConcert';
 
@@ -31,6 +34,12 @@ export const MyShows = ({ currentUser }) => {
     return formattedDate;
   };
 
+  const handleDelete = (concertObj) => {
+    deleteConcert(concertObj.id).then(() => {
+      fetchAndSetAllCurrentUserConcerts();
+    });
+  };
+
   return (
     <div className="my-show-wrapper">
       <div className="button-wrapper">
@@ -56,7 +65,13 @@ export const MyShows = ({ currentUser }) => {
                   <textarea placeholder="Add comment"></textarea>
                   <button className="post-btn">Post</button>
                 </div>
-                <button>Delete</button>
+                <button
+                  onClick={() => {
+                    handleDelete(concert);
+                  }}
+                >
+                  Delete
+                </button>
               </div>
             </div>
           );

@@ -1,7 +1,6 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
 import { NavBar } from '../components/NavBar';
 import { Home } from '../components/Home';
-import { NewConcert } from '../components/NewConcert';
 import { useEffect, useState } from 'react';
 import { MyShows } from '../components/MyShows';
 
@@ -26,12 +25,11 @@ export const AppViews = () => {
           </>
         }
       >
-        <Route index element={<Home />} />
+        <Route index element={<Home currentUser={currentUser} />} />
         <Route
-          path="new-concert"
-          element={<NewConcert currentUser={currentUser} />}
+          path="my-shows"
+          element={<MyShows currentUser={currentUser} />}
         />
-        <Route path="my-shows" element={<MyShows />} />
       </Route>
     </Routes>
   );

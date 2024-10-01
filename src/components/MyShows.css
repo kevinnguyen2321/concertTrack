@@ -1,0 +1,65 @@
+.my-show-wrapper {
+  border: solid black;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.button-wrapper {
+  margin: 12px auto 0 auto;
+}
+
+.card-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+}
+
+.show-card {
+  border: dotted green;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  width: 20%;
+  margin-left: 8px;
+  padding: 8px;
+  margin-top: 8px;
+}
+
+.profile-picture-wrapper {
+  /* border: solid green; */
+  text-align: center;
+  border-radius: 15px;
+}
+
+.profile-picture-wrapper img {
+  width: 140px;
+  border: solid green;
+  border-radius: 8px;
+}
+
+.comment-wrapper {
+  border: solid green;
+  width: 95%;
+  display: flex;
+  justify-content: space-around;
+  padding: 12px;
+  gap: 12px;
+}
+
+.textarea-wrapper {
+  position: relative;
+  width: 100%;
+}
+textarea {
+  width: 259px;
+  height: 71px;
+}
+
+.post-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+}

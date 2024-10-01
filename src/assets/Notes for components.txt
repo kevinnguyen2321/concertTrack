@@ -1,4 +1,4 @@
-NavBar.jsx 
+NavBar.jsx ✓
 
 -Links to Home, Myshows,Community, and Logout componenets
 
@@ -12,7 +12,7 @@ to add a new concert post and when clicked will navigate user to
 new concert view
 
 
-NewConcert.jsx
+NewConcert.jsx ✓
 
 - Will render a new concert form with inputs for artist,
 date, genre, venue, rating and a add button
@@ -20,7 +20,7 @@ date, genre, venue, rating and a add button
 -Will need to fetch genres (state) to use as select elements for users
 to select genre type
 
--Need state for concert post object (on change events to update
+-Need state for concert post object (onChange events to update
 the state)
 
 -Once add button is clicked then the concert will be posted in concerts resource
@@ -33,6 +33,7 @@ MyShows.jsx
 -Cards will be clickable and once clicked will take user to the view concert
 view
 -If user clicks on edit then user will be navigated to edit concert view
+-If user clicks on delete button then the concert post will be deleted
 
 ViewConcert.jsx
 -Will display the concert post information and will use Spotify Web API

@@ -1,19 +1,25 @@
-import { useNavigate } from 'react-router-dom';
 import './Home.css';
+import { useState } from 'react';
+import { NewConcert } from './NewConcert';
 
-export const Home = () => {
-  const navigate = useNavigate();
+export const Home = ({ currentUser }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const handleClick = () => {
-    navigate('/new-concert');
-  };
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
   return (
     <div className="home-wrapper">
       <h1>Welcome to ConcertTrack</h1>
       <p>Where tracking concerts just became easier</p>
-      <button className="new-concert-btn" onClick={handleClick}>
+      <button className="new-concert-btn" onClick={openModal}>
         Add new concert
       </button>
+      <NewConcert
+        currentUser={currentUser}
+        isModalOpen={isModalOpen}
+        onClose={closeModal}
+      />
     </div>
   );
 };

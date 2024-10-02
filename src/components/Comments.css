@@ -1,0 +1,74 @@
+.textarea-wrapper {
+  position: relative;
+  width: 100%;
+}
+textarea {
+  width: 80%;
+  height: 50%;
+}
+
+.post-btn {
+  position: absolute;
+  bottom: 8px;
+  right: 116px;
+}
+.comment-wrapper {
+  border: solid blue;
+  display: flex;
+  width: 70%;
+}
+.comment-pic {
+  width: 60px;
+  border: solid green;
+  border-radius: 22px;
+}
+
+/* Position the modal relative to the .show-card container */
+.comments-modal {
+  position: absolute;
+  top: 100%; /* Position the modal just below the concert post */
+  left: 12px;
+  z-index: 1000;
+  width: 100%;
+}
+
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 600px;
+  border-radius: 10px;
+  max-height: 400px;
+  overflow-y: auto;
+  position: relative;
+}
+
+.close-modal {
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.comments-list {
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.comment-container {
+  border: dotted green;
+  display: flex;
+  gap: 5px;
+}
+
+.author-info-wrapper {
+  border: yellow solid;
+  display: flex;
+  gap: 13px;
+  /* flex-direction: column; */
+}
+
+.author-name {
+  font-weight: bold;
+}

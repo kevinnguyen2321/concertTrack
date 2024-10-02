@@ -50,7 +50,7 @@ such as genre,similar artists etc.
 -Will also fetch similar artist based on artist id
 
 
-EditConcert.jsx 
+EditConcert.jsx ✓
 
 -User can edit the inputs and once they hit save then the concert post
 will be updated via PUT method in database

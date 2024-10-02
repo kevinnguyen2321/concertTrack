@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { getConcertByUserIdAndExpandUser } from '../services/concertServices';
+import { getConcertByUserIdAndExpandUser } from '../../services/concertServices';
 import './MyShows.css';
-import { NewConcert } from './NewConcert';
-import { Concert } from './Concert';
+import { NewConcert } from '../concerts/NewConcert';
+import { Concert } from '../concerts/Concert';
 
 export const MyShows = ({ currentUser }) => {
   const [currentUserConcerts, setCurrentUserConcerts] = useState([]);

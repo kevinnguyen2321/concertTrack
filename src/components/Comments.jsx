@@ -1,6 +1,16 @@
+import { deleteComment } from '../services/commentsServices';
 import './Comments.css';
 
-export const Comments = ({ comment }) => {
+export const Comments = ({
+  comment,
+  currentUser,
+  getCommentsAndSetComments,
+}) => {
+  const handleDeleteComment = () => {
+    deleteComment(comment.id).then(() => {
+      getCommentsAndSetComments();
+    });
+  };
   return (
     <div className="textarea-wrapper">
       <div className="comment-container">
@@ -11,12 +21,12 @@ export const Comments = ({ comment }) => {
         />
         <div className="author-info-wrapper">
           <p className="author-name">{comment.user.fullName}</p>
-
           <p>{comment.text}</p>
+          {comment.userId === currentUser.id && (
+            <button onClick={handleDeleteComment}>Delete</button>
+          )}
         </div>
       </div>
-      <textarea placeholder="Add comment"></textarea>
-      <button className="post-btn">Post</button>
     </div>
   );
 };

@@ -1,3 +1,15 @@
+/* Keyframes for scale animation */
+@keyframes scaleUp {
+  0% {
+    transform: scale(0); /* Start from a small scale */
+    opacity: 0; /* Start fully transparent */
+  }
+  100% {
+    transform: scale(1); /* End at full size */
+    opacity: 1; /* End fully visible */
+  }
+}
+
 .textarea-wrapper {
   position: relative;
   width: 100%;
@@ -30,9 +42,11 @@ textarea {
   left: 12px;
   z-index: 1000;
   width: 100%;
+  animation: scaleUp 0.3s ease-out; /* Apply the scale animation */
+  transform-origin: top center; /* Set origin for scaling */
 }
 
-.modal-content {
+.comments-modal-content {
   background-color: white;
   padding: 20px;
   border: 1px solid #888;

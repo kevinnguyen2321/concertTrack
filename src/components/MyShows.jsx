@@ -43,6 +43,7 @@ export const MyShows = ({ currentUser }) => {
               fetchAndSetAllCurrentUserConcerts={
                 fetchAndSetAllCurrentUserConcerts
               }
+              currentUser={currentUser}
             />
           );
         })}

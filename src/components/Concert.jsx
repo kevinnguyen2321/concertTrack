@@ -3,7 +3,10 @@ import { EditConcert } from './EditConcert';
 import './Concert.css';
 import './Comments.css';
 import { useEffect, useState } from 'react';
-import { getCommentByConcertIdAndExpandUser } from '../services/commentsServices';
+import {
+  addNewComment,
+  getCommentByConcertIdAndExpandUser,
+} from '../services/commentsServices';
 import { Comments } from './Comments';
 
 export const Concert = ({
@@ -12,14 +15,21 @@ export const Concert = ({
   isEditModalOpen,
   closeEditModal,
   fetchAndSetAllCurrentUserConcerts,
+  currentUser,
 }) => {
   const [comments, setComments] = useState([]);
   const [isCommentsModalOpen, setIsCommentsModalOpen] = useState(false);
+  const [currentUserComment, setCurrentUserComment] = useState({});
 
-  useEffect(() => {
+  // Function to grab comments by concertId and set state//
+  const getCommentsAndSetComments = () => {
     getCommentByConcertIdAndExpandUser(concert.id).then((commentsArr) =>
       setComments(commentsArr)
     );
+  };
+  // On initial render fetch all comments for this concert post//
+  useEffect(() => {
+    getCommentsAndSetComments();
   }, []);
 
   //Function to format date to MM/DD/YYY format//
@@ -40,12 +50,44 @@ export const Concert = ({
     });
   };
 
+  //Logic for comments//
+
   const handleOpenCommentsModal = () => {
     setIsCommentsModalOpen(true);
   };
 
   const handleCloseCommentsModal = () => {
     setIsCommentsModalOpen(false);
+  };
+
+  //Function to get today's date in YYYY-MM-DD format//
+  const getTodaysDate = () => {
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0]; // Returns in YYYY-MM-DD format
+    return formattedDate;
+  };
+
+  const handleCommentInput = (e) => {
+    const copyObj = { ...currentUserComment };
+    copyObj.text = e.target.value;
+    setCurrentUserComment(copyObj);
+  };
+
+  const handlePostClick = () => {
+    const copyCurrentUserCommentObj = { ...currentUserComment };
+    copyCurrentUserCommentObj.userId = currentUser.id;
+    copyCurrentUserCommentObj.concertId = concert.id;
+    copyCurrentUserCommentObj.date = getTodaysDate();
+
+    addNewComment(copyCurrentUserCommentObj).then(() => {
+      getCommentsAndSetComments();
+      setCurrentUserComment({
+        text: '',
+        date: '',
+        concertId: '',
+        userId: '',
+      });
+    });
   };
 
   return (
@@ -81,15 +123,28 @@ export const Concert = ({
 
       {isCommentsModalOpen && (
         <div className="comments-modal">
-          <div className="modal-content">
+          <div className="comments-modal-content">
             <span className="close-modal" onClick={handleCloseCommentsModal}>
               &times;
             </span>
             <h2>Comments</h2>
             <div className="comments-list">
               {comments.map((comment) => (
-                <Comments comment={comment} key={comment.id} />
+                <Comments
+                  comment={comment}
+                  key={comment.id}
+                  currentUser={currentUser}
+                  getCommentsAndSetComments={getCommentsAndSetComments}
+                />
               ))}
+              <textarea
+                placeholder="Add comment"
+                value={currentUserComment.text}
+                onChange={handleCommentInput}
+              ></textarea>
+              <button className="post-btn" onClick={handlePostClick}>
+                Post
+              </button>
             </div>
           </div>
         </div>

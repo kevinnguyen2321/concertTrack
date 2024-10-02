@@ -14,6 +14,18 @@ export const getConcertByUserIdAndExpandUser = (userId) => {
   ).then((res) => res.json());
 };
 
-export const deleteConcert = () => {
-  return fetch('http://localhost:8088/concerts');
+export const deleteConcert = (concertId) => {
+  return fetch(`http://localhost:8088/concerts/${concertId}`, {
+    method: 'DELETE',
+  });
+};
+
+export const updateConcert = (concert) => {
+  return fetch(`http://localhost:8088/concerts/${concert.id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(concert),
+  });
 };

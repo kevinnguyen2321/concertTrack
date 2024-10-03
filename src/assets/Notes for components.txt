@@ -27,7 +27,7 @@ the state)
 in database and user will be navigated to MyShows view.
 
 
-MyShows.jsx
+MyShows.jsx ✓
 
 - Will display all of the users concerts posts on the page on cards
 -Cards will be clickable and once clicked will take user to the view concert
@@ -36,21 +36,21 @@ view
 -If user clicks on delete button then the concert post will be deleted
 - If concert post has comment(s) then those must be displayed
 
-ViewConcert.jsx
+ViewConcert.jsx ✓
 -Will display the concert post information and will use Spotify Web API
 to fetch image of artist
 -If user clicks on artist image user will be navigated to
 artist info
 
 
-ArtistInfo.jsx
+ArtistInfo.jsx ✓
 - Will fetch artist info by artist name from Spotify web API to display artist info
 such as genre,similar artists etc.
 
 -Will also fetch similar artist based on artist id
 
 
-EditConcert.jsx 
+EditConcert.jsx ✓
 
 -User can edit the inputs and once they hit save then the concert post
 will be updated via PUT method in database
@@ -67,7 +67,7 @@ in the view concert view
 -Current user will be able to edit or delete their comment (PUT and DELETE requests)
 
 
-AppViews.jsx
+AppViews.jsx ✓
 
 -Will handle routes for the app
 - ViewConcert route should user useParam for concertId in route

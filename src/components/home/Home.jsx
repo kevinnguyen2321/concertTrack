@@ -1,6 +1,7 @@
 import './Home.css';
 import { useState } from 'react';
-import { NewConcert } from './NewConcert';
+import { NewConcert } from '../concerts/NewConcert';
+import { Link } from 'react-router-dom';
 
 export const Home = ({ currentUser }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);

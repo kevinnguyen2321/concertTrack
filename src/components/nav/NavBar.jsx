@@ -5,7 +5,9 @@ export const NavBar = () => {
   const navigate = useNavigate();
   return (
     <div className="nav-bar-wrapper">
-      <h1>ConcertTrack</h1>
+      <h1>
+        <Link to={'/'}>ConcertTrack</Link>
+      </h1>
       <ul className="links-wrapper">
         <li>
           <Link to={'/'}>Home</Link>

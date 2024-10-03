@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import './NewConcert.css';
 import { useEffect } from 'react';
-import { getAllGenres } from '../services/genreServices';
-import { addNewConcert } from '../services/concertServices';
+import { getAllGenres } from '../../services/genreServices';
+import { addNewConcert } from '../../services/concertServices';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 export const NewConcert = ({

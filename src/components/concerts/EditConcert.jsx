@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './NewConcert.css';
-import { getAllGenres } from '../services/genreServices';
-import { updateConcert } from '../services/concertServices';
+import { getAllGenres } from '../../services/genreServices';
+import { updateConcert } from '../../services/concertServices';
 
 export const EditConcert = ({
   concertObj,

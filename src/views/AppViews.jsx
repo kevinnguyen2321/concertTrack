@@ -1,8 +1,9 @@
 import { Outlet, Route, Routes } from 'react-router-dom';
-import { NavBar } from '../components/NavBar';
-import { Home } from '../components/Home';
+import { Home } from '../components/home/Home';
 import { useEffect, useState } from 'react';
-import { MyShows } from '../components/MyShows';
+import { MyShows } from '../components/shows/MyShows';
+import { ViewConcert } from '../components/concerts/ViewConcert';
+import { NavBar } from '../components/nav/NavBar';
 
 export const AppViews = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -26,10 +27,10 @@ export const AppViews = () => {
         }
       >
         <Route index element={<Home currentUser={currentUser} />} />
-        <Route
-          path="my-shows"
-          element={<MyShows currentUser={currentUser} />}
-        />
+        <Route path="my-shows">
+          <Route index element={<MyShows currentUser={currentUser} />} />
+          <Route path=":concertId" element={<ViewConcert />} />
+        </Route>
       </Route>
     </Routes>
   );

@@ -1,4 +1,4 @@
-import { deleteComment } from '../services/commentsServices';
+import { deleteComment } from '../../services/commentsServices';
 import './Comments.css';
 
 export const Comments = ({
@@ -23,7 +23,14 @@ export const Comments = ({
           <p className="author-name">{comment.user.fullName}</p>
           <p>{comment.text}</p>
           {comment.userId === currentUser.id && (
-            <button onClick={handleDeleteComment}>Delete</button>
+            <button
+              onClick={(event) => {
+                event.stopPropagation();
+                handleDeleteComment();
+              }}
+            >
+              Delete
+            </button>
           )}
         </div>
       </div>

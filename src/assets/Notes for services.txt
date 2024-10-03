@@ -19,7 +19,7 @@ Community.jsx
 
 
 
-artistService.js
+artistService.js ✓
 
 -uses Spotify Web API to display artist info
 will have a function to fetch token and automate

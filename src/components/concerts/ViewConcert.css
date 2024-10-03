@@ -1,0 +1,39 @@
+.concert-wrapper {
+  border: solid black;
+  width: 45%;
+  margin: 200px auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+p span {
+  font-weight: bold;
+}
+
+.artist-image-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.artist-image {
+  margin-top: 8px;
+  width: 35%;
+  border-radius: 8px;
+  transition: 500ms transform ease-out;
+}
+
+.artist-image:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.error-message {
+  border: solid red;
+  width: 40%;
+  text-align: center;
+  margin: 200px auto 0 auto;
+  font-size: 3rem;
+  padding: 20px;
+}

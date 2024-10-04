@@ -17,6 +17,7 @@ export const Concert = ({
   closeEditModal,
   fetchAndSetAllCurrentUserConcerts,
   currentUser,
+  selectedConcert,
 }) => {
   const [comments, setComments] = useState([]);
   const [isCommentsModalOpen, setIsCommentsModalOpen] = useState(false);
@@ -124,6 +125,7 @@ export const Concert = ({
           isEditModalOpen={isEditModalOpen}
           closeEditModal={closeEditModal}
           fetchAndSetAllCurrentUserConcerts={fetchAndSetAllCurrentUserConcerts}
+          selectedConcert={selectedConcert}
         />
         <p
           onClick={(event) => {
@@ -146,7 +148,12 @@ export const Concert = ({
 
       {isCommentsModalOpen && (
         <div className="comments-modal">
-          <div className="comments-modal-content">
+          <div
+            className="comments-modal-content"
+            onClick={(event) => {
+              event.stopPropagation();
+            }}
+          >
             <span
               className="close-modal"
               onClick={(event) => {

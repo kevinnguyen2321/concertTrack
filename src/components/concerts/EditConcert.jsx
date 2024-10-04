@@ -8,18 +8,23 @@ export const EditConcert = ({
   isEditModalOpen,
   closeEditModal,
   fetchAndSetAllCurrentUserConcerts,
+  selectedConcert,
 }) => {
   //State//
   const [genres, setGenres] = useState([]);
-  const [editedConcertObj, setEditedConcertObj] = useState({ ...concertObj });
+  const [editedConcertObj, setEditedConcertObj] = useState(
+    selectedConcert || {}
+  );
   //Grab all genres//
   useEffect(() => {
     getAllGenres().then((genresArr) => setGenres(genresArr));
   }, []);
-  // Update editedConcertObh whenever concertObj changes
+  // Update editedConcertObj whenever concertObj changes
   useEffect(() => {
-    setEditedConcertObj(concertObj);
-  }, [concertObj]);
+    if (selectedConcert) {
+      setEditedConcertObj(selectedConcert);
+    }
+  }, [selectedConcert]);
   // if EditModalOpen state is false then do not render content//
   if (!isEditModalOpen) {
     return null;
@@ -60,7 +65,13 @@ export const EditConcert = ({
   };
 
   return (
-    <div className="modal-overlay" onClick={closeEditModal}>
+    <div
+      className="modal-overlay"
+      onClick={(event) => {
+        event.stopPropagation();
+        closeEditModal();
+      }}
+    >
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="close-btn" onClick={closeEditModal}>
           X

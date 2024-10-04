@@ -42,7 +42,7 @@ export const ArtistInfo = ({ isArtistModalOpen, artist, closeArtistModal }) => {
           </p>
         </div>
         <div className="similar-artist-wrapper">
-          <div className='similar-artist-header'>
+          <div className="similar-artist-header">
             <h2>Similar Artists</h2>
           </div>
 
@@ -51,7 +51,13 @@ export const ArtistInfo = ({ isArtistModalOpen, artist, closeArtistModal }) => {
               return (
                 <div className="similar-artist-card" key={similarArtist.id}>
                   <h3>{similarArtist.name}</h3>
-                  <img src={similarArtist.images[2].url} />
+                  <img
+                    src={
+                      similarArtist.images[2]
+                        ? similarArtist.images[2].url
+                        : `http://dummyimage.com/150x150/cccccc/ffffff&text=${similarArtist.name}`
+                    }
+                  />
                 </div>
               );
             })}

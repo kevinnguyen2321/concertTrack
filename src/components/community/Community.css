@@ -1,0 +1,5 @@
+.community-concert-wrapper {
+  border: solid black;
+  display: flex;
+  flex-wrap: wrap;
+}

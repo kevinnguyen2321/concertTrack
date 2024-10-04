@@ -57,7 +57,7 @@ will be updated via PUT method in database
 -Once successfully updated the user will be navigated back to the myShows view
 
 
-Community.jsx
+Community.jsx ✓
 - This page will render all of the concert posts from concerts resource
 - If user clicks on a concert post they will be able to see it 
 in the view concert view

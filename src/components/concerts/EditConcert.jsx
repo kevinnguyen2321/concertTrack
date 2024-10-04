@@ -8,18 +8,24 @@ export const EditConcert = ({
   isEditModalOpen,
   closeEditModal,
   fetchAndSetAllCurrentUserConcerts,
+  selectedConcert,
+  fetchAndSetAllConcerts,
 }) => {
   //State//
   const [genres, setGenres] = useState([]);
-  const [editedConcertObj, setEditedConcertObj] = useState({ ...concertObj });
+  const [editedConcertObj, setEditedConcertObj] = useState(
+    selectedConcert || {}
+  );
   //Grab all genres//
   useEffect(() => {
     getAllGenres().then((genresArr) => setGenres(genresArr));
   }, []);
-  // Update editedConcertObh whenever concertObj changes
+  // Update editedConcertObj whenever concertObj changes
   useEffect(() => {
-    setEditedConcertObj(concertObj);
-  }, [concertObj]);
+    if (selectedConcert) {
+      setEditedConcertObj(selectedConcert);
+    }
+  }, [selectedConcert]);
   // if EditModalOpen state is false then do not render content//
   if (!isEditModalOpen) {
     return null;
@@ -51,16 +57,26 @@ export const EditConcert = ({
     }
 
     delete editedConcertObj.user;
-    console.log(editedConcertObj);
 
     updateConcert(editedConcertObj).then(() => {
       closeEditModal();
-      fetchAndSetAllCurrentUserConcerts();
+      // Check which prop is truthy then call the one that is passed//
+      if (fetchAndSetAllCurrentUserConcerts) {
+        fetchAndSetAllCurrentUserConcerts();
+      } else if (fetchAndSetAllConcerts) {
+        fetchAndSetAllConcerts();
+      }
     });
   };
 
   return (
-    <div className="modal-overlay" onClick={closeEditModal}>
+    <div
+      className="modal-overlay"
+      onClick={(event) => {
+        event.stopPropagation();
+        closeEditModal();
+      }}
+    >
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
         <button className="close-btn" onClick={closeEditModal}>
           X
@@ -76,7 +92,7 @@ export const EditConcert = ({
               type="text"
               id="artist"
               name="artist"
-              value={editedConcertObj.artist}
+              value={editedConcertObj.artist || ''}
               onChange={handleInputChange}
               required
             />
@@ -87,7 +103,7 @@ export const EditConcert = ({
               type="date"
               name="date"
               id="date"
-              value={editedConcertObj.date}
+              value={editedConcertObj.date || ''}
               onChange={handleInputChange}
               required
             />
@@ -97,7 +113,7 @@ export const EditConcert = ({
             <select
               name="genreId"
               id="genre-select"
-              value={editedConcertObj.genreId}
+              value={editedConcertObj.genreId || ''}
               onChange={handleInputChange}
               required
             >
@@ -117,7 +133,7 @@ export const EditConcert = ({
               type="text"
               id="venue"
               name="venue"
-              value={editedConcertObj.venue}
+              value={editedConcertObj.venue || ''}
               onChange={handleInputChange}
               required
             />

@@ -38,7 +38,7 @@ textarea {
 /* Position the modal relative to the .show-card container */
 .comments-modal {
   position: absolute;
-  top: 100%; /* Position the modal just below the concert post */
+  top: 60%; /* Position the modal just below the concert post */
   left: 12px;
   z-index: 1000;
   width: 100%;

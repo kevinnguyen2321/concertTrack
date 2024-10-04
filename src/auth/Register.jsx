@@ -7,11 +7,11 @@ export const Register = (props) => {
   const [user, setUser] = useState({
     email: '',
     fullName: '',
-    profilePic: '',
   });
   let navigate = useNavigate();
 
   const registerNewUser = () => {
+    user.profilePic = `http://dummyimage.com/150x150/cccccc/ffffff&text=${user.fullName}`;
     createUser(user).then((createdUser) => {
       if (createdUser.hasOwnProperty('id')) {
         localStorage.setItem(

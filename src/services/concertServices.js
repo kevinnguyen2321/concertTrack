@@ -14,6 +14,12 @@ export const getConcertByUserIdAndExpandUser = (userId) => {
   ).then((res) => res.json());
 };
 
+export const getAllConcertsAndExpandUser = () => {
+  return fetch('http://localhost:8088/concerts?_expand=user').then((res) =>
+    res.json()
+  );
+};
+
 export const getConcertByConcertId = (concertId) => {
   return fetch(`http://localhost:8088/concerts?id=${concertId}`).then((res) =>
     res.json()

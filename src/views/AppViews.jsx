@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import { MyShows } from '../components/shows/MyShows';
 import { ViewConcert } from '../components/concerts/ViewConcert';
 import { NavBar } from '../components/nav/NavBar';
+import { Community } from '../components/community/Community';
 
 export const AppViews = () => {
   const [currentUser, setCurrentUser] = useState({});
@@ -31,6 +32,10 @@ export const AppViews = () => {
           <Route index element={<MyShows currentUser={currentUser} />} />
           <Route path=":concertId" element={<ViewConcert />} />
         </Route>
+        <Route
+          path="community"
+          element={<Community currentUser={currentUser} />}
+        />
       </Route>
     </Routes>
   );

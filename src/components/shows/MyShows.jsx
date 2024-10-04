@@ -8,12 +8,16 @@ export const MyShows = ({ currentUser }) => {
   const [currentUserConcerts, setCurrentUserConcerts] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isEditModalOpen, setEditModal] = useState(false);
+  const [selectedConcert, setSelectedConcert] = useState({});
 
   //Functions to set state for new concert modal//
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
   //Functions to set state for edit modal//
-  const openEditModal = () => setEditModal(true);
+  const openEditModal = (concert) => {
+    setSelectedConcert(concert);
+    setEditModal(true);
+  };
   const closeEditModal = () => setEditModal(false);
   //Function to fetch all concert posts for current user//
   const fetchAndSetAllCurrentUserConcerts = () => {
@@ -37,13 +41,14 @@ export const MyShows = ({ currentUser }) => {
             <Concert
               concert={concert}
               key={concert.id}
-              openEditModal={openEditModal}
+              openEditModal={() => openEditModal(concert)}
               isEditModalOpen={isEditModalOpen}
               closeEditModal={closeEditModal}
               fetchAndSetAllCurrentUserConcerts={
                 fetchAndSetAllCurrentUserConcerts
               }
               currentUser={currentUser}
+              selectedConcert={selectedConcert}
             />
           );
         })}

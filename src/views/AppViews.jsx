@@ -32,7 +32,10 @@ export const AppViews = () => {
           <Route index element={<MyShows currentUser={currentUser} />} />
           <Route path=":concertId" element={<ViewConcert />} />
         </Route>
-        <Route path="community" element={<Community />} />
+        <Route
+          path="community"
+          element={<Community currentUser={currentUser} />}
+        />
       </Route>
     </Routes>
   );

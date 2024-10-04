@@ -4,11 +4,15 @@ import { useEffect } from 'react';
 import { getAllConcertsAndExpandUser } from '../../services/concertServices';
 import { Concert } from '../concerts/Concert';
 
-export const Community = () => {
+export const Community = ({ currentUser }) => {
   const [concerts, setConcerts] = useState([]);
   const [isEditModalOpen, setEditModal] = useState(false);
+  const [selectedConcert, setSelectedConcert] = useState({});
 
-  const openEditModal = () => setEditModal(true);
+  const openEditModal = (concert) => {
+    setSelectedConcert(concert);
+    setEditModal(true);
+  };
   const closeEditModal = () => setEditModal(false);
 
   const fetchAndSetAllConcerts = () => {
@@ -29,8 +33,11 @@ export const Community = () => {
             key={concert.id}
             concert={concert}
             isEditModalOpen={isEditModalOpen}
-            openEditModal={openEditModal}
+            openEditModal={() => openEditModal(concert)}
             closeEditModal={closeEditModal}
+            currentUser={currentUser}
+            selectedConcert={selectedConcert}
+            fetchAndSetAllConcerts={fetchAndSetAllConcerts}
           />
         );
       })}

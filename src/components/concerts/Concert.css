@@ -17,6 +17,7 @@
 .show-card:hover {
   transform: scale(1.1);
   cursor: pointer;
+  z-index: 1000;
 }
 
 .no-hover:hover {

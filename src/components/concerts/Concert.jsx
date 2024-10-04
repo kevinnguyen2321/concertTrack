@@ -18,6 +18,7 @@ export const Concert = ({
   fetchAndSetAllCurrentUserConcerts,
   currentUser,
   selectedConcert,
+  fetchAndSetAllConcerts,
 }) => {
   const [comments, setComments] = useState([]);
   const [isCommentsModalOpen, setIsCommentsModalOpen] = useState(false);
@@ -50,7 +51,11 @@ export const Concert = ({
 
   const handleDelete = (concertObj) => {
     deleteConcert(concertObj.id).then(() => {
-      fetchAndSetAllCurrentUserConcerts();
+      if (fetchAndSetAllCurrentUserConcerts) {
+        fetchAndSetAllCurrentUserConcerts();
+      } else if (fetchAndSetAllConcerts) {
+        fetchAndSetAllConcerts();
+      }
     });
   };
 
@@ -112,20 +117,24 @@ export const Concert = ({
       </div>
       <div>Rating:{concert.rating}</div>
       <div className="comment-wrapper">
-        <button
-          onClick={(event) => {
-            event.stopPropagation();
-            openEditModal();
-          }}
-        >
-          Edit
-        </button>
+        {/* If current user.id is the same as concert.userId the render edit btn */}
+        {currentUser.id === concert.userId && (
+          <button
+            onClick={(event) => {
+              event.stopPropagation();
+              openEditModal();
+            }}
+          >
+            Edit
+          </button>
+        )}
         <EditConcert
           concertObj={concert}
           isEditModalOpen={isEditModalOpen}
           closeEditModal={closeEditModal}
           fetchAndSetAllCurrentUserConcerts={fetchAndSetAllCurrentUserConcerts}
           selectedConcert={selectedConcert}
+          fetchAndSetAllConcerts={fetchAndSetAllConcerts}
         />
         <p
           onClick={(event) => {
@@ -135,15 +144,17 @@ export const Concert = ({
         >
           Comments({comments.length})
         </p>
-
-        <button
-          onClick={(event) => {
-            event.stopPropagation();
-            handleDelete(concert);
-          }}
-        >
-          Delete
-        </button>
+        {/* If current user.id is the same as concert.userId the render delete btn */}
+        {currentUser.id === concert.userId && (
+          <button
+            onClick={(event) => {
+              event.stopPropagation();
+              handleDelete(concert);
+            }}
+          >
+            Delete
+          </button>
+        )}
       </div>
 
       {isCommentsModalOpen && (

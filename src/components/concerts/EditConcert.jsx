@@ -9,6 +9,7 @@ export const EditConcert = ({
   closeEditModal,
   fetchAndSetAllCurrentUserConcerts,
   selectedConcert,
+  fetchAndSetAllConcerts,
 }) => {
   //State//
   const [genres, setGenres] = useState([]);
@@ -56,11 +57,15 @@ export const EditConcert = ({
     }
 
     delete editedConcertObj.user;
-    console.log(editedConcertObj);
 
     updateConcert(editedConcertObj).then(() => {
       closeEditModal();
-      fetchAndSetAllCurrentUserConcerts();
+      // Check which prop is truthy then call the one that is passed//
+      if (fetchAndSetAllCurrentUserConcerts) {
+        fetchAndSetAllCurrentUserConcerts();
+      } else if (fetchAndSetAllConcerts) {
+        fetchAndSetAllConcerts();
+      }
     });
   };
 
@@ -87,7 +92,7 @@ export const EditConcert = ({
               type="text"
               id="artist"
               name="artist"
-              value={editedConcertObj.artist}
+              value={editedConcertObj.artist || ''}
               onChange={handleInputChange}
               required
             />
@@ -98,7 +103,7 @@ export const EditConcert = ({
               type="date"
               name="date"
               id="date"
-              value={editedConcertObj.date}
+              value={editedConcertObj.date || ''}
               onChange={handleInputChange}
               required
             />
@@ -108,7 +113,7 @@ export const EditConcert = ({
             <select
               name="genreId"
               id="genre-select"
-              value={editedConcertObj.genreId}
+              value={editedConcertObj.genreId || ''}
               onChange={handleInputChange}
               required
             >
@@ -128,7 +133,7 @@ export const EditConcert = ({
               type="text"
               id="venue"
               name="venue"
-              value={editedConcertObj.venue}
+              value={editedConcertObj.venue || ''}
               onChange={handleInputChange}
               required
             />

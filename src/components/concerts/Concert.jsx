@@ -9,6 +9,7 @@ import {
 } from '../../services/commentsServices';
 import { Comments } from '../comments/Comments';
 import { useNavigate } from 'react-router-dom';
+import { format, parseISO } from 'date-fns';
 
 export const Concert = ({
   concert,
@@ -37,17 +38,8 @@ export const Concert = ({
     getCommentsAndSetComments();
   }, []);
 
-  //Function to format date to MM/DD/YYY format//
-  const formatDate = (dateStr) => {
-    const dateObj = new Date(dateStr);
-
-    const month = (dateObj.getMonth() + 1).toString().padStart(2, '0'); // getMonth() is zero-based
-    const day = dateObj.getDate().toString().padStart(2, '0');
-    const year = dateObj.getFullYear();
-
-    const formattedDate = `${month}/${day}/${year}`;
-    return formattedDate;
-  };
+  // Convert date to MM-dd-YYYY format and consider UTC//
+  const displayDate = format(parseISO(concert.date), 'MM-dd-yyyy');
 
   const handleDelete = (concertObj) => {
     deleteConcert(concertObj.id).then(() => {
@@ -113,7 +105,7 @@ export const Concert = ({
       <div>Artist:{concert.artist}</div>
       <div>
         Date:
-        {formatDate(concert.date)}
+        {displayDate}
       </div>
       <div>Rating:{concert.rating}</div>
       <div className="comment-wrapper">

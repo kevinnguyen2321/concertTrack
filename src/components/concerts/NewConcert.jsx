@@ -22,7 +22,12 @@ export const NewConcert = ({
   // Function for onChange event for inputs and select element//
   const handleInputChange = (event) => {
     const copyObj = { ...concertObj };
-    if (event.target.name === 'genreId') {
+    if (event.target.name === 'date') {
+      // Create a new Date object in UTC
+      const utcDate = new Date(event.target.value + 'T00:00:00Z'); // 'T00:00:00Z' ensures it is interpreted as UTC
+      copyObj[event.target.name] = utcDate.toISOString().split('T')[0]; // Store in YYYY-MM-DD format
+      console.log('Stored UTC Date:', copyObj[event.target.name]);
+    } else if (event.target.name === 'genreId') {
       copyObj[event.target.name] = parseInt(event.target.value);
     } else if (event.target.name === 'rating') {
       copyObj[event.target.name] = parseInt(event.target.value);

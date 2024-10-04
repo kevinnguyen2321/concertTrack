@@ -4,6 +4,7 @@ import { getConcertByConcertId } from '../../services/concertServices';
 import './ViewConcert.css';
 import { fetchArtist } from '../../services/artistServices';
 import { ArtistInfo } from '../artist/ArtistInfo';
+import { format, parseISO } from 'date-fns';
 
 export const ViewConcert = () => {
   const { concertId } = useParams();
@@ -37,17 +38,8 @@ export const ViewConcert = () => {
     }
   }, [concert]);
 
-  //Function to format date to MM/DD/YYY format//
-  const formatDate = (dateStr) => {
-    const dateObj = new Date(dateStr);
-
-    const month = (dateObj.getMonth() + 1).toString().padStart(2, '0'); // getMonth() is zero-based
-    const day = dateObj.getDate().toString().padStart(2, '0');
-    const year = dateObj.getFullYear();
-
-    const formattedDate = `${month}/${day}/${year}`;
-    return formattedDate;
-  };
+  // Convert date to MM-dd-YYYY format and consider UTC//
+  // const displayDate = format(parseISO(concert.date), 'MM-dd-yyyy');
 
   const handleOpenArtistModal = () => setIsArtistModalOpen(true);
   const handleCloseArtistModal = () => setIsArtistModalOpen(false);
@@ -83,7 +75,9 @@ export const ViewConcert = () => {
       <div>
         <p>
           <span>Date:</span>
-          {formatDate(concert.date)}
+          {concert.date
+            ? format(parseISO(concert.date), 'MM/dd/yyyy')
+            : 'Date not available'}
         </p>
       </div>
       <div>

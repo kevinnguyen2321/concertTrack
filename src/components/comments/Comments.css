@@ -96,7 +96,7 @@ textarea {
     align-items: center;
   }
   .comment-wrapper {
-    width: 50%;
+    width: 80%;
     flex-direction: column;
   }
 

@@ -4,7 +4,6 @@
 }
 
 .links-wrapper {
-  border: solid black;
   display: flex;
   width: 80%;
   justify-content: space-around;
@@ -12,10 +11,19 @@
   list-style: none;
 }
 
+.links-wrapper a:hover {
+  color: #20ddfc;
+}
+
 .links-wrapper a,
 .nav-bar-wrapper h1 a {
-  color: inherit;
+  color: #2e273c;
   text-decoration: none;
+  margin-left: 18px;
+}
+
+.nav-bar-wrapper h1 a:hover {
+  color: #20ddfc;
 }
 
 /* Extra small devices (phones, less than 600px) */

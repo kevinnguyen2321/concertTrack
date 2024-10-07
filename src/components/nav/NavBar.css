@@ -1,5 +1,5 @@
 .nav-bar-wrapper {
-  border: solid black;
+  /* border: solid black; */
   display: flex;
 }
 
@@ -16,4 +16,27 @@
 .nav-bar-wrapper h1 a {
   color: inherit;
   text-decoration: none;
+}
+
+/* Extra small devices (phones, less than 600px) */
+@media only screen and (max-width: 600px) {
+  .links-wrapper {
+    flex-direction: column;
+    gap: 2px;
+    width: 100%;
+    margin: 0 auto 0 auto;
+    justify-content: center;
+  }
+
+  .nav-bar-wrapper h1 a {
+    display: none;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  /* Your styles for small devices */
+  .links-wrapper {
+    width: 55%;
+  }
 }

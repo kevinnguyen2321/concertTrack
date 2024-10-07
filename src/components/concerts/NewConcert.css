@@ -27,6 +27,7 @@
   position: relative;
   transform: translateY(-20px);
   animation: slideIn 0.3s forwards;
+  color: black;
 }
 
 @keyframes fadeIn {
@@ -45,4 +46,63 @@
   position: absolute;
   top: 9px;
   right: 12px;
+}
+
+/* Extra small devices (phones, less than 600px) */
+@media only screen and (max-width: 600px) {
+  .modal-content {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .form-wrapper {
+    padding: 12px;
+    width: 100%;
+  }
+
+  .field-set input {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  select {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+
+  .add-concert-btn-wrapper button {
+    width: 100%;
+  }
+
+  .ratings {
+    display: flex;
+    margin-bottom: 8px;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  /* Your styles for small devices */
+  .modal-content {
+    width: 80%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  /* Your styles for tablets */
+  .modal-content {
+    width: 70%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  /* Your styles for laptops */
+  .modal-content {
+    width: 50% ;
+  }
 }

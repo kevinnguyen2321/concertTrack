@@ -138,7 +138,7 @@ export const EditConcert = ({
               required
             />
           </div>
-          <div className="field-set">
+          <div className="field-set ratings">
             <label htmlFor="rating">Rating</label>
             <input
               type="radio"

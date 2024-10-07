@@ -74,3 +74,32 @@
 .similar-artist-card {
   border: solid black;
 }
+
+.similar-artist-card img {
+  width: 100%;
+}
+
+/* Extra small devices (phones, less than 600px) */
+@media only screen and (max-width: 600px) {
+  /* Your styles for phones */
+  .view-artist-modal-content {
+    width: 80%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  /* Your styles for small devices */
+
+  .view-artist-modal-content {
+    width: 80%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  /* Your styles for tablets */
+  .view-artist-modal-content {
+    width: 80%;
+  }
+}

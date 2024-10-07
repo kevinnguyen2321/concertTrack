@@ -37,3 +37,27 @@ p span {
   font-size: 3rem;
   padding: 20px;
 }
+
+/* Extra small devices (phones, less than 600px) */
+@media only screen and (max-width: 600px) {
+  /* Your styles for phones */
+  .concert-wrapper {
+    width: 100%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  /* Your styles for small devices */
+  .concert-wrapper {
+    width: 100%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  /* Your styles for tablets */
+  .concert-wrapper {
+    width: 100%;
+  }
+}

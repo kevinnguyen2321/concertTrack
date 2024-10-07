@@ -1,5 +1,6 @@
 .container-login {
   text-align: center;
+  margin: 200px auto 0 auto;
 }
 
 .container-login > section > a {
@@ -8,8 +9,8 @@
 }
 
 .form-login {
-  width: 60%;
-  margin: 2rem auto;
+  width: 25%;
+  margin: 200px auto 0 auto;
 }
 
 .form-login > h1 {
@@ -76,4 +77,29 @@ fieldset {
   box-shadow: none;
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+/* Extra small devices (phones, less than 600px) */
+@media only screen and (max-width: 600px) {
+  /* Your styles for phones */
+
+  .form-login {
+    width: 85%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  /* Your styles for small devices */
+  .form-login {
+    width: 75%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  /* Your styles for tablets */
+  .form-login {
+    width: 60%;
+  }
 }

@@ -6,7 +6,7 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  width: 25%;
+  width: 24%;
   margin-left: 15px;
   padding: 8px;
   margin-top: 5px;
@@ -43,4 +43,41 @@
   width: 140px;
   border: solid green;
   border-radius: 8px;
+}
+
+
+
+/* Extra small devices (phones, less than 600px) */
+@media only screen and (max-width: 600px) {
+  /* Your styles for phones */
+  .show-card {
+    width: 60%;
+    align-items: center;
+  }
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) and (max-width: 768px) {
+  /* Your styles for small devices */
+  .show-card {
+    width: 60%;
+  }
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) and (max-width: 992px) {
+  /* Your styles for tablets */
+  .show-card {
+    width: 45%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+  /* Your styles for laptops */
+   .show-card {
+    width: 29%;
+   }
 }

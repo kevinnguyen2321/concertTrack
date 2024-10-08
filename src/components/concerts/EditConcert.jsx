@@ -82,7 +82,7 @@ export const EditConcert = ({
           X
         </button>
         <form className="form-wrapper">
-          <div>
+          <div className="new-concert-header-wrapper">
             <h2>Edit Concert</h2>
           </div>
 
@@ -130,6 +130,7 @@ export const EditConcert = ({
           <div className="field-set">
             <label htmlFor="venue">Venue</label>
             <input
+              className="venue-input"
               type="text"
               id="venue"
               name="venue"
@@ -183,7 +184,9 @@ export const EditConcert = ({
             />
           </div>
           <div className="add-concert-btn-wrapper">
-            <button onClick={handleSave}>Save</button>
+            <button className="button-6" onClick={handleSave}>
+              Save
+            </button>
           </div>
         </form>
       </div>

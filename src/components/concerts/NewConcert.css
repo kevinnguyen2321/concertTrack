@@ -1,7 +1,65 @@
 .form-wrapper {
-  /* border: solid black; */
   width: 80%;
   text-align: center;
+  box-shadow: none !important;
+  /* border: solid green; */
+  font-size: 2rem;
+}
+
+.new-concert-header-wrapper {
+  margin-bottom: 15px;
+}
+
+.field-set {
+  display: flex;
+  gap: 20px;
+}
+
+.field-set input {
+  width: 70%;
+  padding: 0.75rem;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  margin-left: 15px;
+}
+
+.field-set select {
+  width: 40%;
+  padding: 0.75rem;
+  margin-bottom: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+  margin-left: 8px;
+}
+
+.venue-input {
+  margin-left: 5px !important;
+}
+
+/* Focus state for input and select */
+.field-set input:focus,
+.field-set select:focus {
+  border-color: #90c6ff; /* Highlight border on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow on focus */
+}
+
+.field-set input[type='radio'] {
+  width: auto; /* Ensures radio buttons don't stretch */
+  margin-right: 5px; /* Space between the radio button and label */
+}
+
+.field-set input[type='date'] {
+  width: 40%;
+  margin-left: 26px;
 }
 
 .modal-overlay {
@@ -20,14 +78,14 @@
 
 .modal-content {
   background: white;
-  padding: 20px;
   border-radius: 8px;
-  width: 30%;
+  width: 45%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   transform: translateY(-20px);
   animation: slideIn 0.3s forwards;
   color: black;
+  background-color: #f4feff;
 }
 
 @keyframes fadeIn {
@@ -46,13 +104,15 @@
   position: absolute;
   top: 9px;
   right: 12px;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
 }
 
-
-
-
-
-
+.add-btn {
+  background-color: #20ddfc;
+}
 
 /* Extra small devices (phones, less than 600px) */
 @media only screen and (max-width: 600px) {
@@ -109,6 +169,6 @@
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* Your styles for laptops */
   .modal-content {
-    width: 50% ;
+    width: 50%;
   }
 }

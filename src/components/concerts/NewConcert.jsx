@@ -13,6 +13,7 @@ export const NewConcert = ({
 }) => {
   const [genres, setGenres] = useState([]);
   const [concertObj, setConcertObj] = useState({});
+  const [rating, setRating] = useState(0);
   const navigate = useNavigate();
   const location = useLocation();
   //Fetch all genres data on initial render//
@@ -29,14 +30,20 @@ export const NewConcert = ({
       console.log('Stored UTC Date:', copyObj[event.target.name]);
     } else if (event.target.name === 'genreId') {
       copyObj[event.target.name] = parseInt(event.target.value);
-    } else if (event.target.name === 'rating') {
-      copyObj[event.target.name] = parseInt(event.target.value);
     } else {
       copyObj[event.target.name] = event.target.value;
     }
 
     setConcertObj(copyObj);
   };
+
+  //Function to handle rating click//
+  const handleRatingClick = (value) => {
+    setRating(value);
+    const copyOfConcertObj = { ...concertObj, rating: value };
+    setConcertObj(copyOfConcertObj);
+  };
+
   //Function for adding new concert post to database//
   const handleAddNewConcertClick = (e) => {
     e.preventDefault();
@@ -58,26 +65,30 @@ export const NewConcert = ({
       userId: currentUser.id,
     };
 
-    addNewConcert(copyOfConcertObjWithUserId)
-      .then(() => {
-        setConcertObj({
-          artist: '',
-          date: '',
-          genreId: '',
-          venue: '',
-          rating: null,
+    if (copyOfConcertObjWithUserId.rating) {
+      addNewConcert(copyOfConcertObjWithUserId)
+        .then(() => {
+          setConcertObj({
+            artist: '',
+            date: '',
+            genreId: '',
+            venue: '',
+            rating: null,
+          });
+          if (location.pathname !== '/my-shows') {
+            navigate('/my-shows');
+          } else {
+            onClose();
+            fetchAndSetAllCurrentUserConcerts();
+          }
+        })
+        .catch((error) => {
+          console.error('Error adding new concert:', error);
+          alert('Failed to add new concert. Please try again');
         });
-        if (location.pathname !== '/my-shows') {
-          navigate('/my-shows');
-        } else {
-          onClose();
-          fetchAndSetAllCurrentUserConcerts();
-        }
-      })
-      .catch((error) => {
-        console.error('Error adding new concert:', error);
-        alert('Failed to add new concert. Please try again');
-      });
+    } else {
+      alert('Please rate this concert');
+    }
   };
 
   if (!isModalOpen) {
@@ -148,50 +159,22 @@ export const NewConcert = ({
               required
             />
           </div>
+
           <div className="field-set ratings">
-            <label htmlFor="rating">Rating</label>
-            <input
-              type="radio"
-              id="one"
-              name="rating"
-              value={1}
-              checked={concertObj.rating === 1}
-              onChange={handleInputChange}
-              required
-            />
-            <input
-              type="radio"
-              id="two"
-              name="rating"
-              value={2}
-              checked={concertObj.rating === 2}
-              onChange={handleInputChange}
-            />
-            <input
-              type="radio"
-              id="three"
-              name="rating"
-              value={3}
-              checked={concertObj.rating === 3}
-              onChange={handleInputChange}
-            />
-            <input
-              type="radio"
-              id="four"
-              name="rating"
-              value={4}
-              checked={concertObj.rating === 4}
-              onChange={handleInputChange}
-            />
-            <input
-              type="radio"
-              id="five"
-              name="rating"
-              value={5}
-              checked={concertObj.rating === 5}
-              onChange={handleInputChange}
-            />
+            <label>Rating</label>
+            <div className="stars">
+              {[1, 2, 3, 4, 5].map((starValue) => (
+                <span
+                  key={starValue}
+                  className={`star ${starValue <= rating ? 'filled' : ''}`}
+                  onClick={() => handleRatingClick(starValue)}
+                >
+                  ★
+                </span>
+              ))}
+            </div>
           </div>
+
           <div className="add-concert-btn-wrapper">
             <button
               className="button-6 add-btn"

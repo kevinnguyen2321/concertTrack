@@ -16,7 +16,7 @@
 }
 
 .field-set input {
-  width: 70%;
+  width: 50%;
   padding: 0.75rem;
   margin-bottom: 8px;
   border: 1px solid #ccc;
@@ -41,6 +41,24 @@
   margin-left: 8px;
 }
 
+.field-set .stars {
+  display: flex; /* Align stars in a row */
+  width: 50%;
+  justify-content: space-around;
+}
+
+.field-set .star {
+  font-size: 3rem; /* Adjust the size of the stars */
+  color: #cec8c8; /* Default star color */
+  cursor: pointer; /* Change cursor to pointer */
+  transition: color 0.3s ease; /* Smooth transition */
+  position: relative;
+  transform: translateY(-15px); /* This will move all the stars up by 10px */
+}
+
+.field-set .star.filled {
+  color: gold; /* Filled star color */
+}
 .venue-input {
   margin-left: 5px !important;
 }
@@ -50,11 +68,6 @@
 .field-set select:focus {
   border-color: #90c6ff; /* Highlight border on focus */
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Subtle shadow on focus */
-}
-
-.field-set input[type='radio'] {
-  width: auto; /* Ensures radio buttons don't stretch */
-  margin-right: 5px; /* Space between the radio button and label */
 }
 
 .field-set input[type='date'] {
@@ -79,7 +92,7 @@
 .modal-content {
   background: white;
   border-radius: 8px;
-  width: 45%;
+  width: 38%;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
   transform: translateY(-20px);
@@ -110,8 +123,9 @@
   cursor: pointer;
 }
 
-.add-btn {
-  background-color: #20ddfc;
+.add-btn,
+.save-btn {
+  padding: 5px 50px 5px 50px !important;
 }
 
 /* Extra small devices (phones, less than 600px) */

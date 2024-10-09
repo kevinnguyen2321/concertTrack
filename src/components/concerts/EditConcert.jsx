@@ -16,6 +16,7 @@ export const EditConcert = ({
   const [editedConcertObj, setEditedConcertObj] = useState(
     selectedConcert || {}
   );
+  const [rating, setRating] = useState(0);
   //Grab all genres//
   useEffect(() => {
     getAllGenres().then((genresArr) => setGenres(genresArr));
@@ -24,8 +25,10 @@ export const EditConcert = ({
   useEffect(() => {
     if (selectedConcert) {
       setEditedConcertObj(selectedConcert);
+      setRating(selectedConcert.rating);
     }
   }, [selectedConcert]);
+
   // if EditModalOpen state is false then do not render content//
   if (!isEditModalOpen) {
     return null;
@@ -42,6 +45,13 @@ export const EditConcert = ({
       copyObj[e.target.name] = e.target.value;
     }
     setEditedConcertObj(copyObj);
+  };
+
+  //Function to handle rating click//
+  const handleRatingClick = (value) => {
+    setRating(value);
+    const copyOfConcertObj = { ...editedConcertObj, rating: value };
+    setEditedConcertObj(copyOfConcertObj);
   };
 
   const handleSave = (e) => {
@@ -139,52 +149,23 @@ export const EditConcert = ({
               required
             />
           </div>
+
           <div className="field-set ratings">
-            <label htmlFor="rating">Rating</label>
-            <input
-              type="radio"
-              id="one"
-              name="rating"
-              value={1}
-              checked={editedConcertObj.rating === 1}
-              onChange={handleInputChange}
-              required
-            />
-            <input
-              type="radio"
-              id="two"
-              name="rating"
-              value={2}
-              checked={editedConcertObj.rating === 2}
-              onChange={handleInputChange}
-            />
-            <input
-              type="radio"
-              id="three"
-              name="rating"
-              value={3}
-              checked={editedConcertObj.rating === 3}
-              onChange={handleInputChange}
-            />
-            <input
-              type="radio"
-              id="four"
-              name="rating"
-              value={4}
-              checked={editedConcertObj.rating === 4}
-              onChange={handleInputChange}
-            />
-            <input
-              type="radio"
-              id="five"
-              name="rating"
-              value={5}
-              checked={editedConcertObj.rating === 5}
-              onChange={handleInputChange}
-            />
+            <label>Rating</label>
+            <div className="stars">
+              {[1, 2, 3, 4, 5].map((starValue) => (
+                <span
+                  key={starValue}
+                  className={`star ${starValue <= rating ? 'filled' : ''}`}
+                  onClick={() => handleRatingClick(starValue)}
+                >
+                  ★
+                </span>
+              ))}
+            </div>
           </div>
           <div className="add-concert-btn-wrapper">
-            <button className="button-6" onClick={handleSave}>
+            <button className="button-6 save-btn " onClick={handleSave}>
               Save
             </button>
           </div>

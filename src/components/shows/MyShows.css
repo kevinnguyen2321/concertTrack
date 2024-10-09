@@ -1,9 +1,12 @@
 .my-show-wrapper {
-  border: solid black;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   gap: 15px;
+  background: linear-gradient(135deg, #001f3f, #1c507e);
+  height: 87vh;
+  margin: 10px auto 0 auto;
+  padding: 20px;
 }
 
 .button-wrapper {
@@ -20,8 +23,6 @@
   flex-wrap: wrap;
   gap: 25px;
 }
-
-
 
 /* Extra small devices (phones, less than 600px) */
 @media only screen and (max-width: 600px) {

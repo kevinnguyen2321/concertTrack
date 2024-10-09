@@ -1,6 +1,5 @@
 .show-card {
   position: relative;
-  border: dotted green;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,6 +11,9 @@
   margin-top: 5px;
   margin-bottom: 5px;
   transition: transform 500ms ease-out;
+  background-color: #fcfaff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow to lift the cards */
+  color: #364066;
 }
 
 .show-card:hover {

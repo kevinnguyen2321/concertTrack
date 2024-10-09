@@ -3,6 +3,8 @@
   display: flex;
   flex-wrap: wrap;
   background-color: #364066;
+  margin-top: 10px;
+  padding: 12px;
 }
 
 /* Extra small devices (phones, less than 600px) */

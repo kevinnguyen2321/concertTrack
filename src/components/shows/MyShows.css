@@ -6,12 +6,10 @@
   background: linear-gradient(135deg, #001f3f, #1c507e);
   height: 87vh;
   margin: 10px auto 0 auto;
-  padding: 20px;
 }
 
 .button-wrapper {
   margin: 12px auto 0 auto;
-  /* border: solid black; */
 }
 
 .button-wrapper button {
@@ -22,6 +20,24 @@
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
+}
+
+.plus-btn {
+  width: 40px; /* Adjust size */
+  height: 40px;
+  background-size: cover;
+  background-position: center;
+  border: none; /* Remove default button border */
+  background-color: transparent; /* Remove button background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform ease-out 500ms;
+}
+
+.plus-btn:hover {
+  transform: scale(1.2);
+  cursor: pointer;
 }
 
 /* Extra small devices (phones, less than 600px) */

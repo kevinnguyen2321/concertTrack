@@ -51,6 +51,21 @@ export const Concert = ({
     });
   };
 
+  //Function to display rating based on amount//
+  const displayRating = (rating) => {
+    const starsArr = [];
+
+    for (let i = 0; i < rating; i++) {
+      starsArr.push(
+        <span className="small-star" key={i}>
+          ★
+        </span>
+      );
+    }
+
+    return <div className="small-stars-wrapper">{starsArr}</div>;
+  };
+
   //Logic for comments//
 
   const handleOpenCommentsModal = () => {
@@ -102,12 +117,26 @@ export const Concert = ({
         <h2>{concert.user.fullName}</h2>
         <img src={concert.user.profilePic} />
       </div>
-      <div>Artist:{concert.artist}</div>
-      <div>
-        Date:
-        {displayDate}
+      <div className="concert-info-wrapper">
+        <div>
+          <p>
+            <span>Artist:</span>
+            {concert.artist}
+          </p>
+        </div>
+        <div>
+          <p>
+            <span> Date:</span>
+            {displayDate}
+          </p>
+        </div>
+        <div className="rating-wrapper">
+          <p className="rating-header">
+            <span>Rating:</span>
+          </p>
+          {displayRating(concert.rating)}
+        </div>
       </div>
-      <div>Rating:{concert.rating}</div>
       <div className="comment-wrapper">
         {/* If current user.id is the same as concert.userId the render edit btn */}
         {currentUser.id === concert.userId && (

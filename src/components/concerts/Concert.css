@@ -27,9 +27,15 @@
 }
 
 .profile-picture-wrapper {
-  /* border: solid green; */
   text-align: center;
   border-radius: 15px;
+}
+
+.concert-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .comment-wrapper {
@@ -43,11 +49,29 @@
 
 .profile-picture-wrapper img {
   width: 140px;
-  border: solid green;
-  border-radius: 8px;
+  /* border: solid green; */
+  border-radius: 50px;
 }
 .comment-wrapper p {
   font-size: clamp(0.8rem, 1.1vw, 1.5rem);
+}
+
+.rating-wrapper {
+  display: flex;
+}
+
+.rating-header {
+  margin-top: 6px;
+}
+
+.small-stars-wrapper {
+  font-size: 2.5rem;
+  position: relative;
+  bottom: 15px;
+}
+
+.small-star {
+  color: gold;
 }
 
 /* Extra small devices (phones, less than 600px) */

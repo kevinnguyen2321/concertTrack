@@ -3,6 +3,7 @@ import { getConcertByUserIdAndExpandUser } from '../../services/concertServices'
 import './MyShows.css';
 import { NewConcert } from '../concerts/NewConcert';
 import { Concert } from '../concerts/Concert';
+import plusIcon from '../../assets/plus.png';
 
 export const MyShows = ({ currentUser }) => {
   const [currentUserConcerts, setCurrentUserConcerts] = useState([]);
@@ -33,7 +34,11 @@ export const MyShows = ({ currentUser }) => {
   return (
     <div className="my-show-wrapper">
       <div className="button-wrapper">
-        <button onClick={openModal}>+</button>
+        <button
+          className="plus-btn"
+          onClick={openModal}
+          style={{ backgroundImage: `url(${plusIcon})` }}
+        ></button>
       </div>
       <div className="card-wrapper">
         {currentUserConcerts.map((concert) => {

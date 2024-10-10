@@ -10,6 +10,9 @@ import {
 import { Comments } from '../comments/Comments';
 import { useNavigate } from 'react-router-dom';
 import { format, parseISO } from 'date-fns';
+import editIcon from '../../assets/edit.png';
+import deleteIcon from '../../assets/delete.png';
+import commentIcon from '../../assets/comment.png';
 
 export const Concert = ({
   concert,
@@ -141,13 +144,13 @@ export const Concert = ({
         {/* If current user.id is the same as concert.userId the render edit btn */}
         {currentUser.id === concert.userId && (
           <button
+            className="edit-concert-btn"
             onClick={(event) => {
               event.stopPropagation();
               openEditModal();
             }}
-          >
-            Edit
-          </button>
+            style={{ backgroundImage: `url(${editIcon})` }}
+          ></button>
         )}
         <EditConcert
           concertObj={concert}
@@ -157,28 +160,33 @@ export const Concert = ({
           selectedConcert={selectedConcert}
           fetchAndSetAllConcerts={fetchAndSetAllConcerts}
         />
-        <p
-          onClick={(event) => {
-            event.stopPropagation();
-            handleOpenCommentsModal();
-          }}
-        >
-          Comments({comments.length})
-        </p>
+        {/* Only render comment icon if isEditModalOpen is false */}
+        {!isEditModalOpen && (
+          <div
+            className="comments-icon"
+            onClick={(event) => {
+              event.stopPropagation();
+              handleOpenCommentsModal();
+            }}
+            style={{ backgroundImage: `url(${commentIcon})` }}
+          >
+            <span className="comment-length">{comments.length}</span>
+          </div>
+        )}
         {/* If current user.id is the same as concert.userId the render delete btn */}
         {currentUser.id === concert.userId && (
           <button
+            className="delete-concert-btn"
             onClick={(event) => {
               event.stopPropagation();
               handleDelete(concert);
             }}
-          >
-            Delete
-          </button>
+            style={{ backgroundImage: `url(${deleteIcon})` }}
+          ></button>
         )}
       </div>
 
-      {isCommentsModalOpen && (
+      {isCommentsModalOpen && !isEditModalOpen && (
         <div className="comments-modal">
           <div
             className="comments-modal-content"
@@ -206,12 +214,14 @@ export const Concert = ({
                 />
               ))}
               <textarea
+                className='comment-textarea'
                 placeholder="Add comment"
                 value={currentUserComment.text}
                 onClick={(event) => {
                   event.stopPropagation();
                 }}
                 onChange={handleCommentInput}
+                maxLength={250}
               ></textarea>
               <button
                 className="post-btn"

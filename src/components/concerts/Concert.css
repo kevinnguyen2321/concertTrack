@@ -5,14 +5,14 @@
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  width: 24%;
+  width: 20%;
   margin-left: 15px;
   padding: 8px;
   margin-top: 5px;
   margin-bottom: 5px;
   transition: transform 500ms ease-out;
   background-color: #fcfaff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow to lift the cards */
+  box-shadow: rgba(46, 44, 44, 0.418) 0px 5px 15px;
   color: #364066;
 }
 
@@ -39,7 +39,6 @@
 }
 
 .comment-wrapper {
-  border: solid rgb(175, 13, 13);
   width: 90%;
   display: flex;
   justify-content: space-around;
@@ -72,6 +71,41 @@
 
 .small-star {
   color: gold;
+}
+
+.edit-concert-btn,
+.delete-concert-btn,
+.comments-icon {
+  width: 25px; /* Adjust size */
+  height: 25px;
+  background-size: cover;
+  background-position: center;
+  border: none; /* Remove default button border */
+  background-color: transparent; /* Remove button background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform ease-out 500ms;
+}
+
+.edit-concert-btn:hover,
+.delete-concert-btn:hover,
+.comments-icon:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.comments-icon {
+  color: white;
+  position: relative;
+}
+
+.comment-length {
+  position: absolute;
+  bottom: 14px;
+  left: 23px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
 }
 
 /* Extra small devices (phones, less than 600px) */

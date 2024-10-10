@@ -24,10 +24,10 @@
 }
 
 .artist-info-wrapper {
-  border: solid green;
   display: flex;
   flex-direction: column;
   align-items: center;
+  border-bottom: 1px solid black;
 }
 
 .artist-info-pic {
@@ -57,26 +57,23 @@
   cursor: pointer;
 }
 
-.similar-artist-wrapper {
-  border: solid black;
-  /* display: flex; */
-}
-
 .similar-artist-header {
   text-align: center;
 }
 
 .similar-artist-card-wrapper {
-  border: dotted yellow;
   display: flex;
+  gap: 8px;
 }
 
 .similar-artist-card {
-  border: solid black;
+  border-radius: 15px;
+  border: solid 1px black;
 }
 
 .similar-artist-card img {
-  width: 100%;
+  width: 90%;
+  border-radius: 12px;
 }
 
 /* Extra small devices (phones, less than 600px) */

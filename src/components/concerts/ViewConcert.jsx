@@ -39,7 +39,6 @@ export const ViewConcert = () => {
   }, [concert]);
 
   // Convert date to MM-dd-YYYY format and consider UTC//
-  // const displayDate = format(parseISO(concert.date), 'MM-dd-yyyy');
 
   const handleOpenArtistModal = () => setIsArtistModalOpen(true);
   const handleCloseArtistModal = () => setIsArtistModalOpen(false);

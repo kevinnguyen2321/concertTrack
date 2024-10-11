@@ -327,7 +327,32 @@ textarea {
     position: relative;
   }
 
-  .delete-comment-btn-wrapper{
+  .delete-comment-btn-wrapper {
     right: -12px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1300px) {
+  /* Styles for screens between 992px and 1200px */
+  .comment-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .author-info-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  /* Adjustments for mobile */
+  .delete-comment-btn-wrapper {
+    right: 0px; /* Adjust positioning for mobile */
+    top: 50px;
+  }
+
+  .comment-text {
+    margin-top: -15px;
   }
 }

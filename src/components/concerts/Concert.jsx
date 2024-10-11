@@ -203,7 +203,7 @@ export const Concert = ({
             >
               &times;
             </span>
-            <h2>Comments</h2>
+            <h2 className="comments-header">Comments</h2>
             <div className="comments-list">
               {comments.map((comment) => (
                 <Comments
@@ -214,7 +214,7 @@ export const Concert = ({
                 />
               ))}
               <textarea
-                className='comment-textarea'
+                className="comment-textarea"
                 placeholder="Add comment"
                 value={currentUserComment.text}
                 onClick={(event) => {

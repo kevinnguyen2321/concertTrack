@@ -49,7 +49,7 @@ export const Login = () => {
           </fieldset>
           <fieldset>
             <div className="form-group">
-              <button className="login-btn btn-info" type="submit">
+              <button className="login-btn btn-info button-6" type="submit">
                 Log in
               </button>
             </div>
@@ -57,7 +57,7 @@ export const Login = () => {
         </form>
       </section>
       <section>
-        <Link to="/register">Not a member yet? Sign up here</Link>
+        <Link className='register-link' to="/register">Not a member yet? Sign up here</Link>
       </section>
     </main>
   );

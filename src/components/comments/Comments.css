@@ -116,6 +116,7 @@ textarea {
   padding: 5px;
   align-items: center;
   flex-grow: 1;
+  position: relative;
 }
 
 .author-info-wrapper {
@@ -154,6 +155,13 @@ textarea {
   border-color: rgba(0, 0, 0, 0.15);
   box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
   color: rgba(0, 0, 0, 0.65);
+}
+
+.delete-comment-btn-wrapper {
+  position: absolute; /* Absolute position the delete button */
+  top: 45%; /* Adjust the vertical position */
+  right: 8px; /* Align it to the right */
+  transform: translateY(-50%); /* Center the button vertically */
 }
 
 .delete-comment-btn {
@@ -204,10 +212,20 @@ textarea {
   .comment-wrapper {
     width: 80%;
     flex-direction: column;
+    align-items: center;
+    box-shadow: none;
+  }
+
+  .comments-header {
+    font-size: 1rem;
   }
 
   .comments-modal {
-    left: 35px;
+    left: 20px;
+  }
+
+  .comments-modal-content {
+    width: 90%;
   }
 
   .comment-container {
@@ -218,6 +236,13 @@ textarea {
     flex-direction: column;
     width: 100%;
     align-items: center;
+    position: relative;
+  }
+
+  /* Adjustments for mobile */
+  .delete-comment-btn-wrapper {
+    right: 18px; /* Adjust positioning for mobile */
+    top: 34px;
   }
 
   .author-info-wrapper button {
@@ -229,6 +254,16 @@ textarea {
     width: 55px;
     height: 55px;
   }
+  .comment-text {
+    margin-top: -15px;
+    width: 80%;
+  }
+
+  .delete-comment-btn {
+    width: 10% !important;
+    margin-top: -15px;
+    margin-left: 180px;
+  }
 }
 
 textarea {
@@ -239,21 +274,45 @@ textarea {
 @media only screen and (min-width: 600px) and (max-width: 768px) {
   /* Your styles for small devices */
   .comments-modal {
-    left: 40px;
+    left: 0;
+  }
+
+  .comments-modal-content {
+    width: 100%;
+  }
+
+  .comment-text {
+    margin-top: -15px;
+    width: 80%;
   }
 
   .comment-container {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
   }
 
   .author-info-wrapper {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
   }
 
   .comment-pic {
     width: 55px;
     height: 55px;
+  }
+
+  /* Adjustments for mobile */
+  .delete-comment-btn-wrapper {
+    right: 0px; /* Adjust positioning for mobile */
+    top: 35px;
+  }
+
+  .delete-comment-btn {
+    margin-top: -15px;
+    margin-left: 145px;
   }
 }
 
@@ -261,6 +320,14 @@ textarea {
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   /* Your styles for tablets */
   .comments-modal {
-    left: 40px;
+    left: 0px;
+  }
+
+  .author-info-wrapper {
+    position: relative;
+  }
+
+  .delete-comment-btn-wrapper{
+    right: -12px;
   }
 }

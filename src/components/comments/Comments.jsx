@@ -24,14 +24,16 @@ export const Comments = ({
           <p className="author-name">{comment.user.fullName}</p>
           <p className="comment-text">{comment.text}</p>
           {comment.userId === currentUser.id && (
-            <button
-              className="delete-comment-btn"
-              onClick={(event) => {
-                event.stopPropagation();
-                handleDeleteComment();
-              }}
-              style={{ backgroundImage: `url(${deleteCommentIcon})` }}
-            ></button>
+            <div className="delete-comment-btn-wrapper">
+              <button
+                className="delete-comment-btn"
+                onClick={(event) => {
+                  event.stopPropagation();
+                  handleDeleteComment();
+                }}
+                style={{ backgroundImage: `url(${deleteCommentIcon})` }}
+              ></button>
+            </div>
           )}
         </div>
       </div>

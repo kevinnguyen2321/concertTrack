@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './Login.css';
 import { createUser, getUserByEmail } from '../services/userServices';
 
@@ -46,7 +46,7 @@ export const Register = (props) => {
   };
 
   return (
-    <main style={{ textAlign: 'center' }}>
+    <main className="container-login" style={{ textAlign: 'center' }}>
       <form className="form-login" onSubmit={handleRegister}>
         <h1>ConcertTrack</h1>
         <h2>Please Register</h2>
@@ -75,10 +75,13 @@ export const Register = (props) => {
             />
           </div>
         </fieldset>
+        <div className="login-link">
+          <Link to={'/login'}>Already have an account? Sign in here</Link>
+        </div>
 
         <fieldset>
           <div className="form-group">
-            <button className="login-btn btn-info" type="submit">
+            <button className="login-btn btn-info button-6" type="submit">
               Register
             </button>
           </div>

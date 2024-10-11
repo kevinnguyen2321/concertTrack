@@ -81,7 +81,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
- background-color: rgba(22, 22, 22, 0.5);
+  background-color: rgba(22, 22, 22, 0.5);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -131,7 +131,7 @@
 /* Extra small devices (phones, less than 600px) */
 @media only screen and (max-width: 600px) {
   .modal-content {
-    width: 60%;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -141,15 +141,26 @@
   .form-wrapper {
     padding: 12px;
     width: 100%;
+    font-size: 1.4rem;
+  }
+
+  .field-set {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .field-set input {
-    width: 100%;
+    width: 90% !important;
     margin-bottom: 8px;
   }
 
+  .new-concert-header-wrapper h2 {
+    font-size: 1.4rem;
+  }
+
   select {
-    width: 100%;
+    width: 90% !important;
     margin-bottom: 8px;
   }
 
@@ -161,6 +172,10 @@
     display: flex;
     margin-bottom: 8px;
   }
+  .star {
+    margin-top: -8px;
+    font-size: 1.3rem !important;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -168,6 +183,12 @@
   /* Your styles for small devices */
   .modal-content {
     width: 80%;
+  }
+
+  .form-wrapper {
+    font-size: 1.5rem;
+    display: flex;
+    flex-direction: column;
   }
 }
 
@@ -183,6 +204,6 @@
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* Your styles for laptops */
   .modal-content {
-    width: 50%;
+    width: 60%;
   }
 }

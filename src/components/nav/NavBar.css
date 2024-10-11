@@ -41,6 +41,10 @@
 @media only screen and (min-width: 600px) and (max-width: 768px) {
   /* Your styles for small devices */
   .links-wrapper {
-    width: 55%;
+    width: 100%;
+  }
+
+  .nav-bar-wrapper h1 a {
+    font-size: 1.2rem;
   }
 }

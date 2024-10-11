@@ -4,7 +4,7 @@
   flex-direction: column;
   gap: 15px;
   background: linear-gradient(135deg, #001f3f, #1c507e);
-  height: 87vh;
+  min-height: 87vh;
   margin: 10px auto 0 auto;
 }
 
@@ -61,6 +61,7 @@
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   /* Your styles for tablets */
+
   .card-wrapper {
     flex-direction: column;
     align-items: center;

@@ -69,6 +69,11 @@
 .similar-artist-card {
   border-radius: 15px;
   border: solid 1px black;
+  width: 100%;
+}
+
+.similar-artist-card h3 {
+  font-size: 1.2rem;
 }
 
 .similar-artist-card img {
@@ -76,11 +81,23 @@
   border-radius: 12px;
 }
 
+
+/* MEDIA QUERIES */
+
 /* Extra small devices (phones, less than 600px) */
 @media only screen and (max-width: 600px) {
   /* Your styles for phones */
   .view-artist-modal-content {
     width: 80%;
+  }
+
+  .similar-artist-card {
+    width: 25%;
+ 
+  }
+
+  .similar-artist-card h3 {
+    font-size: 0.7rem;
   }
 }
 
@@ -91,6 +108,10 @@
   .view-artist-modal-content {
     width: 80%;
   }
+
+  .similar-artist-card h3 {
+    font-size: 0.9rem;
+  }
 }
 
 /* Medium devices (landscape tablets, 768px and up) */
@@ -98,5 +119,8 @@
   /* Your styles for tablets */
   .view-artist-modal-content {
     width: 80%;
+  }
+  .similar-artist-card h3 {
+    font-size: 1rem;
   }
 }

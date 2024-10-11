@@ -1,17 +1,19 @@
 .show-card {
   position: relative;
-  border: dotted green;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
-  width: 24%;
+  width: 21%;
   margin-left: 15px;
   padding: 8px;
   margin-top: 5px;
   margin-bottom: 5px;
   transition: transform 500ms ease-out;
+  background-color: #fcfaff;
+  box-shadow: rgba(46, 44, 44, 0.418) 0px 5px 15px;
+  color: #364066;
 }
 
 .show-card:hover {
@@ -25,13 +27,18 @@
 }
 
 .profile-picture-wrapper {
-  /* border: solid green; */
   text-align: center;
   border-radius: 15px;
 }
 
+.concert-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .comment-wrapper {
-  border: solid rgb(175, 13, 13);
   width: 90%;
   display: flex;
   justify-content: space-around;
@@ -41,43 +48,119 @@
 
 .profile-picture-wrapper img {
   width: 140px;
-  border: solid green;
-  border-radius: 8px;
+  /* border: solid green; */
+  border-radius: 50px;
+}
+.comment-wrapper p {
+  font-size: clamp(0.8rem, 1.1vw, 1.5rem);
 }
 
+.rating-wrapper {
+  display: flex;
+}
 
+.rating-header {
+  margin-top: 6px;
+}
+
+.small-stars-wrapper {
+  font-size: 2.3rem;
+  position: relative;
+  bottom: 15px;
+}
+
+.small-star {
+  color: gold;
+}
+
+.edit-concert-btn,
+.delete-concert-btn,
+.comments-icon {
+  width: 25px; /* Adjust size */
+  height: 25px;
+  background-size: cover;
+  background-position: center;
+  border: none; /* Remove default button border */
+  background-color: transparent; /* Remove button background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform ease-out 500ms;
+}
+
+.edit-concert-btn:hover,
+.delete-concert-btn:hover,
+.comments-icon:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.comments-icon {
+  color: white;
+  position: relative;
+}
+
+.comment-length {
+  position: absolute;
+  bottom: 14px;
+  left: 23px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+}
 
 /* Extra small devices (phones, less than 600px) */
 @media only screen and (max-width: 600px) {
   /* Your styles for phones */
   .show-card {
-    width: 60%;
+    width: 65%;
+    align-items: center;
+  }
+
+  .small-star {
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .profile-picture-wrapper img {
+    width: 100%;
+  }
+
+  .concert-info-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .rating-wrapper {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    flex-direction: column;
     align-items: center;
   }
 }
-
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) and (max-width: 768px) {
   /* Your styles for small devices */
   .show-card {
-    width: 60%;
+    width: 45%;
   }
 }
-
 
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   /* Your styles for tablets */
   .show-card {
-    width: 45%;
+    width: 40%;
   }
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* Your styles for laptops */
-   .show-card {
+  .show-card {
     width: 29%;
-   }
+  }
 }

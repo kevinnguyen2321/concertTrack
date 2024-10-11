@@ -1,22 +1,25 @@
 .home-wrapper {
-  border: solid black;
-  width: 98%;
-  height: 60vh;
+  width: 100%;
+  height: 87vh;
   margin: 10px auto 0 auto;
   text-align: center;
   font-size: 1.8rem;
   padding: 15px;
-  background-color: black;
-  background-image: url(../../assets/logo.webp);
-  background-size: 30% auto;
-  background-position: left;
-  background-repeat: no-repeat;
+  background-color: #364066;
   color: white;
 }
 
-.new-concert-btn {
-  font-size: 1.5rem;
+.big-logo {
+  width: 30%;
+  border-radius: 15px;
+  margin-top: 20px;
 }
+
+footer {
+  text-align: center;
+  margin-top: 18px;
+}
+
 /* Media queries*/
 @media only screen and (max-width: 600px) {
   .home-wrapper {
@@ -26,7 +29,9 @@
     font-size: 1rem;
     width: 100%;
     padding: 0;
+    height: 84vh;
   }
+
   .home-wrapper p {
     display: none;
   }
@@ -39,20 +44,29 @@
     width: 100%;
     font-size: 1rem;
   }
+
+  .big-logo {
+    width: 75%;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
 }
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) and (max-width: 768px) {
   /* Your styles for small devices */
 
-  .home-wrapper {
-    background-size: 50%;
-  }
   .home-wrapper h1 {
     font-size: 2rem;
   }
 
   .home-wrapper p {
     font-size: 1.5rem;
+  }
+
+  .big-logo {
+    width: 70%;
   }
 }

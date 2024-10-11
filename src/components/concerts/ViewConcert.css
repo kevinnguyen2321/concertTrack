@@ -1,11 +1,24 @@
+.main-view-concert-wrapper {
+  width: 100%;
+  height: 87vh;
+  margin: 10px auto 0 auto;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 15px;
+  background-color: #364066;
+}
+
 .concert-wrapper {
-  border: solid black;
-  width: 45%;
-  margin: 200px auto 0 auto;
+  width: 35%;
+  margin: 150px auto 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  box-shadow: rgba(46, 44, 44, 0.418) 0px 5px 15px;
+  border-radius: 12px;
+  background-color: white;
+  padding: 12px;
 }
 
 p span {
@@ -36,6 +49,42 @@ p span {
   margin: 200px auto 0 auto;
   font-size: 3rem;
   padding: 20px;
+}
+.view-concert-info-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.view-concert-info {
+  margin-bottom: 5px;
+}
+
+.view-concert-rating-wrapper {
+  /* border: solid green; */
+  display: flex;
+  width: 80%;
+  justify-content: center;
+}
+
+.view-concert-rating-text {
+  font-weight: bold;
+  margin-right: 2px;
+}
+
+.view-concert-info p span {
+  margin-right: 5px;
+}
+
+.view-concert-stars-wrapper {
+  display: flex;
+  align-items: flex-start;
+}
+
+.view-concert-star {
+  font-size: 2.5rem;
+  color: gold;
+  margin-top: -17px;
 }
 
 /* Extra small devices (phones, less than 600px) */

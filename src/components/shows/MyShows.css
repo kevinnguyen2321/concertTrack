@@ -1,14 +1,15 @@
 .my-show-wrapper {
-  border: solid black;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   gap: 15px;
+  background: linear-gradient(135deg, #001f3f, #1c507e);
+  min-height: 87vh;
+  margin: 10px auto 0 auto;
 }
 
 .button-wrapper {
   margin: 12px auto 0 auto;
-  /* border: solid black; */
 }
 
 .button-wrapper button {
@@ -21,7 +22,23 @@
   gap: 25px;
 }
 
+.plus-btn {
+  width: 40px; /* Adjust size */
+  height: 40px;
+  background-size: cover;
+  background-position: center;
+  border: none; /* Remove default button border */
+  background-color: transparent; /* Remove button background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform ease-out 500ms;
+}
 
+.plus-btn:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
 
 /* Extra small devices (phones, less than 600px) */
 @media only screen and (max-width: 600px) {
@@ -44,6 +61,7 @@
 /* Medium devices (landscape tablets, 768px and up) */
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   /* Your styles for tablets */
+
   .card-wrapper {
     flex-direction: column;
     align-items: center;

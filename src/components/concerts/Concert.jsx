@@ -10,6 +10,9 @@ import {
 import { Comments } from '../comments/Comments';
 import { useNavigate } from 'react-router-dom';
 import { format, parseISO } from 'date-fns';
+import editIcon from '../../assets/edit.png';
+import deleteIcon from '../../assets/delete.png';
+import commentIcon from '../../assets/comment.png';
 
 export const Concert = ({
   concert,
@@ -49,6 +52,21 @@ export const Concert = ({
         fetchAndSetAllConcerts();
       }
     });
+  };
+
+  //Function to display rating based on amount//
+  const displayRating = (rating) => {
+    const starsArr = [];
+
+    for (let i = 0; i < rating; i++) {
+      starsArr.push(
+        <span className="small-star" key={i}>
+          ★
+        </span>
+      );
+    }
+
+    return <div className="small-stars-wrapper">{starsArr}</div>;
   };
 
   //Logic for comments//
@@ -102,23 +120,37 @@ export const Concert = ({
         <h2>{concert.user.fullName}</h2>
         <img src={concert.user.profilePic} />
       </div>
-      <div>Artist:{concert.artist}</div>
-      <div>
-        Date:
-        {displayDate}
+      <div className="concert-info-wrapper">
+        <div>
+          <p>
+            <span>Artist:</span>
+            {concert.artist}
+          </p>
+        </div>
+        <div>
+          <p>
+            <span> Date:</span>
+            {displayDate}
+          </p>
+        </div>
+        <div className="rating-wrapper">
+          <p className="rating-header">
+            <span>Rating:</span>
+          </p>
+          {displayRating(concert.rating)}
+        </div>
       </div>
-      <div>Rating:{concert.rating}</div>
       <div className="comment-wrapper">
         {/* If current user.id is the same as concert.userId the render edit btn */}
         {currentUser.id === concert.userId && (
           <button
+            className="edit-concert-btn"
             onClick={(event) => {
               event.stopPropagation();
               openEditModal();
             }}
-          >
-            Edit
-          </button>
+            style={{ backgroundImage: `url(${editIcon})` }}
+          ></button>
         )}
         <EditConcert
           concertObj={concert}
@@ -128,28 +160,33 @@ export const Concert = ({
           selectedConcert={selectedConcert}
           fetchAndSetAllConcerts={fetchAndSetAllConcerts}
         />
-        <p
-          onClick={(event) => {
-            event.stopPropagation();
-            handleOpenCommentsModal();
-          }}
-        >
-          Comments({comments.length})
-        </p>
+        {/* Only render comment icon if isEditModalOpen is false */}
+        {!isEditModalOpen && (
+          <div
+            className="comments-icon"
+            onClick={(event) => {
+              event.stopPropagation();
+              handleOpenCommentsModal();
+            }}
+            style={{ backgroundImage: `url(${commentIcon})` }}
+          >
+            <span className="comment-length">{comments.length}</span>
+          </div>
+        )}
         {/* If current user.id is the same as concert.userId the render delete btn */}
         {currentUser.id === concert.userId && (
           <button
+            className="delete-concert-btn"
             onClick={(event) => {
               event.stopPropagation();
               handleDelete(concert);
             }}
-          >
-            Delete
-          </button>
+            style={{ backgroundImage: `url(${deleteIcon})` }}
+          ></button>
         )}
       </div>
 
-      {isCommentsModalOpen && (
+      {isCommentsModalOpen && !isEditModalOpen && (
         <div className="comments-modal">
           <div
             className="comments-modal-content"
@@ -166,7 +203,7 @@ export const Concert = ({
             >
               &times;
             </span>
-            <h2>Comments</h2>
+            <h2 className="comments-header">Comments</h2>
             <div className="comments-list">
               {comments.map((comment) => (
                 <Comments
@@ -177,12 +214,14 @@ export const Concert = ({
                 />
               ))}
               <textarea
+                className="comment-textarea"
                 placeholder="Add comment"
                 value={currentUserComment.text}
                 onClick={(event) => {
                   event.stopPropagation();
                 }}
                 onChange={handleCommentInput}
+                maxLength={250}
               ></textarea>
               <button
                 className="post-btn"

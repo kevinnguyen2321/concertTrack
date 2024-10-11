@@ -1,6 +1,8 @@
 .container-login {
   text-align: center;
-  margin: 200px auto 0 auto;
+  height: 100vh;
+  border: solid #364066;
+  background: linear-gradient(135deg, #001f3f, #1c507e);
 }
 
 .container-login > section > a {
@@ -10,7 +12,9 @@
 
 .form-login {
   width: 25%;
-  margin: 200px auto 0 auto;
+  margin: 150px auto 0 auto;
+  background-color: white;
+  padding: 8px;
 }
 
 .form-login > h1 {
@@ -28,13 +32,22 @@
 }
 
 .login-btn {
-  align-self: flex-end;
+  align-self: center;
 }
 
 .login-btn:focus {
   box-shadow: none;
   outline: 2px solid transparent;
   outline-offset: 2px;
+}
+
+.register-link {
+  color: white !important;
+}
+
+.login-link {
+  margin-left: 12px;
+  display: flex;
 }
 
 /************* FORM STYLES *************/
@@ -83,8 +96,20 @@ fieldset {
 @media only screen and (max-width: 600px) {
   /* Your styles for phones */
 
+  .container-login {
+    font-size: 0.8rem;
+  }
+
   .form-login {
-    width: 85%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .form-login h1 {
+    font-size: 1rem;
+  }
+  .form-login h2 {
+    display: none;
   }
 }
 

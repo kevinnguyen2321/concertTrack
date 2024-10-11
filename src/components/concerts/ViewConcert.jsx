@@ -44,59 +44,76 @@ export const ViewConcert = () => {
   const handleOpenArtistModal = () => setIsArtistModalOpen(true);
   const handleCloseArtistModal = () => setIsArtistModalOpen(false);
 
-  return (
-    <div className="concert-wrapper">
-      <h2>Concert Info</h2>
-      <div className="artist-image-wrapper">
-        {/* Check if artist images has loaded before rendering image */}
-        {artist.images && artist.images.length > 0 && (
-          <img
-            className="artist-image"
-            src={artist.images[0].url}
-            alt="Artist pic"
-            onClick={handleOpenArtistModal}
-          />
-        )}
-        {/* If there is an error fetching artist then use dummy image */}
-        {error && (
-          <img
-            className="artist-image"
-            src={`http://dummyimage.com/150x150/cccccc/ffffff&text=${concert.artist}`}
-          />
-        )}
-      </div>
-      <div>
-        <p>
-          <span>Artist:</span>
-          {concert.artist}
-        </p>
-      </div>
+  //Function to display rating based on amount//
+  const displayRating = (rating) => {
+    const starsArr = [];
 
-      <div>
-        <p>
-          <span>Date:</span>
-          {concert.date
-            ? format(parseISO(concert.date), 'MM/dd/yyyy')
-            : 'Date not available'}
-        </p>
+    for (let i = 0; i < rating; i++) {
+      starsArr.push(
+        <span className="view-concert-star" key={i}>
+          ★
+        </span>
+      );
+    }
+
+    return <div className="view-concert-stars-wrapper">{starsArr}</div>;
+  };
+
+  return (
+    <div className="main-view-concert-wrapper">
+      <div className="concert-wrapper">
+        <h2>Concert Info</h2>
+        <div className="artist-image-wrapper">
+          {/* Check if artist images has loaded before rendering image */}
+          {artist.images && artist.images.length > 0 && (
+            <img
+              className="artist-image"
+              src={artist.images[0].url}
+              alt="Artist pic"
+              onClick={handleOpenArtistModal}
+            />
+          )}
+          {/* If there is an error fetching artist then use dummy image */}
+          {error && (
+            <img
+              className="artist-image"
+              src={`http://dummyimage.com/150x150/cccccc/ffffff&text=${concert.artist}`}
+            />
+          )}
+        </div>
+        <div className="view-concert-info-wrapper">
+          <div className="view-concert-info">
+            <p>
+              <span>Artist:</span>
+              {concert.artist}
+            </p>
+          </div>
+
+          <div className="view-concert-info">
+            <p>
+              <span>Date:</span>
+              {concert.date
+                ? format(parseISO(concert.date), 'MM/dd/yyyy')
+                : 'Date not available'}
+            </p>
+          </div>
+          <div className="view-concert-info">
+            <p>
+              <span>Venue:</span>
+              {concert.venue}
+            </p>
+          </div>
+          <div className="view-concert-rating-wrapper">
+            <span className="view-concert-rating-text">Rating:</span>
+            <div>{displayRating(concert.rating)}</div>
+          </div>
+          <ArtistInfo
+            isArtistModalOpen={isArtistModalOpen}
+            closeArtistModal={handleCloseArtistModal}
+            artist={artist}
+          />
+        </div>
       </div>
-      <div>
-        <p>
-          <span>Venue:</span>
-          {concert.venue}
-        </p>
-      </div>
-      <div>
-        <p>
-          <span>Rating:</span>
-          {concert.rating}
-        </p>
-      </div>
-      <ArtistInfo
-        isArtistModalOpen={isArtistModalOpen}
-        closeArtistModal={handleCloseArtistModal}
-        artist={artist}
-      />
     </div>
   );
 };

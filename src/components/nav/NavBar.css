@@ -4,7 +4,6 @@
 }
 
 .links-wrapper {
-  border: solid black;
   display: flex;
   width: 80%;
   justify-content: space-around;
@@ -12,10 +11,15 @@
   list-style: none;
 }
 
+.links-wrapper a:hover {
+  color: #20ddfc;
+}
+
 .links-wrapper a,
 .nav-bar-wrapper h1 a {
-  color: inherit;
+  color: #2e273c;
   text-decoration: none;
+  margin-left: 18px;
 }
 
 /* Extra small devices (phones, less than 600px) */
@@ -37,6 +41,10 @@
 @media only screen and (min-width: 600px) and (max-width: 768px) {
   /* Your styles for small devices */
   .links-wrapper {
-    width: 55%;
+    width: 100%;
+  }
+
+  .nav-bar-wrapper h1 a {
+    font-size: 1.2rem;
   }
 }

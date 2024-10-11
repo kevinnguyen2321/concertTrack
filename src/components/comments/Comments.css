@@ -10,6 +10,26 @@
   }
 }
 
+/* Global WebKit Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 8px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #f0f0f0; /* Light grey background for the track */
+  border-radius: 10px; /* Rounded corners */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a0a0a0; /* Gray color for the handle */
+  border-radius: 10px; /* Rounded corners */
+  transition: background 0.3s ease; /* Smooth transition for color change */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7a7a7a; /* Darker gray when hovered */
+}
+
 .textarea-wrapper {
   position: relative;
   width: 100%;
@@ -25,21 +45,36 @@ textarea {
   right: 116px;
 }
 .comment-wrapper {
-  border: solid blue;
   display: flex;
   width: 70%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 12px;
 }
 .comment-pic {
-  width: 60px;
-  border: solid green;
+  width: 55px;
   border-radius: 22px;
+  margin-left: 5px;
+}
+
+.comment-text {
+  font-size: 0.7rem;
+  width: 100%;
+  margin-top: 8px;
+  border: solid white;
+  border-radius: 12px;
+  padding: 5px 8px 5px 8px;
+  word-wrap: break-word; /* Ensures that long words break to the next line */
+  word-break: break-word; /* Breaks very long unbreakable words */
+  overflow-wrap: break-word; /* Same as word-wrap, for broader compatibility */
+  white-space: normal; /* Ensures text wraps rather than staying on one line */
+  background-color: #ebe5e5;
 }
 
 /* Position the modal relative to the .show-card container */
 .comments-modal {
   position: absolute;
-  top: 60%; /* Position the modal just below the concert post */
-  left: 12px;
+  top: 53%; /* Position the modal just below the concert post */
+  left: 50px;
   z-index: 1000;
   width: 100%;
   animation: scaleUp 0.3s ease-out; /* Apply the scale animation */
@@ -59,7 +94,9 @@ textarea {
 }
 
 .close-modal {
-  float: right;
+  position: absolute;
+  top: -4px; /* Adjust as needed */
+  right: 6px; /* Adjust as needed */
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
@@ -71,24 +108,101 @@ textarea {
 }
 
 .comment-container {
-  border: dotted green;
+  border-radius: 8px;
   display: flex;
   gap: 5px;
+  border-bottom: solid black 1px;
+  width: 100%;
+  padding: 5px;
+  align-items: center;
+  flex-grow: 1;
+  position: relative;
 }
 
 .author-info-wrapper {
-  border: yellow solid;
   display: flex;
   gap: 13px;
   width: 100%;
   justify-content: space-around;
-  /* flex-direction: column; */
 }
 
 .author-name {
   font-weight: bold;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.post-btn {
+  right: 20px;
+  align-items: center;
+  background-color: #20ddfc;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: whitesmoke;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: inherit;
+  font-weight: 600;
+  padding: 0 5px 0 5px;
+}
+
+.post-btn:hover,
+.post-btn:focus {
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.delete-comment-btn-wrapper {
+  position: absolute; /* Absolute position the delete button */
+  top: 45%; /* Adjust the vertical position */
+  right: 8px; /* Align it to the right */
+  transform: translateY(-50%); /* Center the button vertically */
+}
+
+.delete-comment-btn {
+  width: 20px; /* Adjust size */
+  height: 20px;
+  background-size: cover;
+  background-position: center;
+  border: none; /* Remove default button border */
+  background-color: transparent; /* Remove button background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform ease-out 500ms;
+  margin-top: 12px;
+  margin-right: 5px;
+  flex-shrink: 0;
+}
+
+.delete-comment-btn:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+.comment-textarea {
+  font-size: 0.8rem;
+  width: 100%;
+  border: solid white;
+  border-radius: 15px;
+  padding: 5px 8px 5px 8px;
+  word-wrap: break-word; /* Ensures that long words break to the next line */
+  word-break: break-word; /* Breaks very long unbreakable words */
+  overflow-wrap: break-word; /* Same as word-wrap, for broader compatibility */
+  white-space: normal; /* Ensures text wraps rather than staying on one line */
+  background-color: #ebe5e5;
+}
+
+.comment-textarea:focus {
+  outline: none;
+}
+
+/* MEDIA QUERIES */
 @media only screen and (max-width: 600px) {
   /* Your styles for phones */
   .comment-container {
@@ -96,12 +210,22 @@ textarea {
     align-items: center;
   }
   .comment-wrapper {
-    width: 50%;
+    width: 80%;
     flex-direction: column;
+    align-items: center;
+    box-shadow: none;
+  }
+
+  .comments-header {
+    font-size: 1rem;
   }
 
   .comments-modal {
-    left: 35px;
+    left: 20px;
+  }
+
+  .comments-modal-content {
+    width: 90%;
   }
 
   .comment-container {
@@ -112,6 +236,13 @@ textarea {
     flex-direction: column;
     width: 100%;
     align-items: center;
+    position: relative;
+  }
+
+  /* Adjustments for mobile */
+  .delete-comment-btn-wrapper {
+    right: 18px; /* Adjust positioning for mobile */
+    top: 34px;
   }
 
   .author-info-wrapper button {
@@ -123,35 +254,65 @@ textarea {
     width: 55px;
     height: 55px;
   }
+  .comment-text {
+    margin-top: -15px;
+    width: 80%;
+  }
+
+  .delete-comment-btn {
+    width: 10% !important;
+    margin-top: -15px;
+    margin-left: 180px;
+  }
 }
 
 textarea {
   width: 100%;
 }
 
-.post-btn {
-  right: 35px;
-}
-
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) and (max-width: 768px) {
   /* Your styles for small devices */
   .comments-modal {
-    left: 40px;
+    left: 0;
+  }
+
+  .comments-modal-content {
+    width: 100%;
+  }
+
+  .comment-text {
+    margin-top: -15px;
+    width: 80%;
   }
 
   .comment-container {
     display: flex;
-    justify-content: space-around;
+    flex-direction: column;
+    align-items: center;
   }
 
   .author-info-wrapper {
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
   }
 
   .comment-pic {
     width: 55px;
     height: 55px;
+  }
+
+  /* Adjustments for mobile */
+  .delete-comment-btn-wrapper {
+    right: 0px; /* Adjust positioning for mobile */
+    top: 35px;
+  }
+
+  .delete-comment-btn {
+    margin-top: -15px;
+    margin-left: 145px;
   }
 }
 
@@ -159,6 +320,14 @@ textarea {
 @media only screen and (min-width: 768px) and (max-width: 992px) {
   /* Your styles for tablets */
   .comments-modal {
-    left: 40px;
+    left: 0px;
+  }
+
+  .author-info-wrapper {
+    position: relative;
+  }
+
+  .delete-comment-btn-wrapper{
+    right: -12px;
   }
 }

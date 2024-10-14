@@ -31,7 +31,7 @@ ConcertTrack was developed using modern front-end technologies:
 
 - **State Management**:: Utilized React's useState and useEffect hooks to manage data.
 
-- **API Integration**:: Integrated a public concerts API to help users discover upcoming concerts based on their favorite artists or locations.
+- **API Integration**:: Integrated Spotify's Web API to allow users to view artist information such as genre, similar artists, artist images etc.
 
 - **Version Control**:: Managed code changes using Git and hosted on GitHub for collaboration.
 - **Build Tools**:: Set up using Vite for a fast development environment.
@@ -58,7 +58,35 @@ git clone git@github.com:kevinnguyen2321/front-end-capstone.git
   npm install
   ```
 
-  4. **Start the development server**
+ 4. **Clone JSON server repository (API)**
   ``` bash
-   npm run dev
+   git clone git@github.com:kevinnguyen2321/front-end-capstone-api.git
    ```
+
+5. **Navigate to JSON server directory**
+   ```bash
+   cd front-end-capstone-api
+   ```
+
+6. **Install JSON Server Dependencies**
+   ``` bash
+   npm install
+   ```
+
+7. **Start JSON server:***
+     ``` bash
+     json-server database.json -p 8088 --watch
+     ```
+
+
+ 8. **Start the main app development server:**
+- Open a new terminal window and go back to main ConcertTrack project directory:
+      
+    ``` bash
+      cd concertTrack
+    ```
+- Then start the development server:
+    ``` bash
+     npm run dev
+    ```
+

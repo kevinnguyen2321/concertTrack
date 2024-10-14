@@ -16,7 +16,7 @@ ConcertTrack offers a seamless user experience for managing your concert history
 
 - **Add New Concerts**: Use a simple form to input information about new concerts, including the name of the artist, genre, venue, date, and rating.
 
-- **Artist Information**: Click on an artist's picture to view additional information, such as their biography, social media links, and upcoming tour dates.
+- **Artist Information**: Click on an artist's picture to view additional information, such as genre and similar artists.
 
 - **Edit and Delete Concerts**: Easily update concert details or remove events from your list if needed.
 

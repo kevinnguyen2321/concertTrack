@@ -1,4 +1,4 @@
-# ConcertTrack:
+# ConcertTrack
 
 ## Introduction
 
@@ -43,7 +43,7 @@ To get ConcertTrack up and running on your local machine:
 1. **Clone the Repository:**
 
 ```bash
-git clone git@github.com:kevinnguyen2321/front-end-capstone.git
+git clone git@github.com:kevinnguyen2321/concertTrack.git
 ```
 
 2. **Navigate to Project directory**
@@ -56,37 +56,39 @@ git clone git@github.com:kevinnguyen2321/front-end-capstone.git
 
 ```bash
   npm install
-  ```
+```
 
- 4. **Clone JSON server repository (API)**
-  ``` bash
-   git clone git@github.com:kevinnguyen2321/front-end-capstone-api.git
-   ```
+4.  **Clone JSON server repository (API)**
+
+```bash
+ git clone git@github.com:kevinnguyen2321/concertTrack-api.git
+```
 
 5. **Navigate to JSON server directory**
+
    ```bash
    cd front-end-capstone-api
    ```
 
 6. **Install JSON Server Dependencies**
-   ``` bash
+
+   ```bash
    npm install
    ```
 
-7. **Start JSON server:***
-     ``` bash
-     json-server database.json -p 8088 --watch
-     ```
+7. **Start JSON server:\***
 
+   ```bash
+   json-server database.json -p 8088 --watch
+   ```
 
- 8. **Start the main app development server:**
+8. **Start the main app development server:**
+
 - Open a new terminal window and go back to main ConcertTrack project directory:
-      
-    ``` bash
-      cd concertTrack
-    ```
+  ```bash
+    cd concertTrack
+  ```
 - Then start the development server:
-    ``` bash
-     npm run dev
-    ```
-
+  ```bash
+   npm run dev
+  ```

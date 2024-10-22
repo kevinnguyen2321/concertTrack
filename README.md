@@ -4,7 +4,7 @@
 
 Welcome to ConcertTrack, where tracking concerts just became easier. This app is designed for concert enthusiasts who want to keep a record of all the concerts they've attended, discover new events, and stay connected with the music they love.
 
-## Purpose/Motivation:
+## Purpose/Motivation
 
 Tired of going to a ton of concerts? Who am I kidding—going to concerts is never tiring! Let me rephrase the question: tired of going to tons of concerts and not being able to track how many concerts you attend as a frequent concert-goer? Well, this is the app for you. With ConcertTrack, you can easily keep track of past concerts, add new ones, and organize your experiences in one convenient place.
 
@@ -29,12 +29,12 @@ ConcertTrack was developed using modern front-end technologies:
 - **Framework**: Built with React.js for a component-based architecture, allowing for dynamic rendering and state management.
   Styling: Styled with vanilla CSS and animations using keyframes and transitions to create a lively user experience.
 
-- **State Management**:: Utilized React's useState and useEffect hooks to manage data.
+- **State Management**: Utilized React's useState and useEffect hooks to manage data.
 
-- **API Integration**:: Integrated Spotify's Web API to allow users to view artist information such as genre, similar artists, artist images etc.
+- **API Integration**: Integrated Spotify's Web API to allow users to view artist information such as genre, similar artists, artist images etc.
 
-- **Version Control**:: Managed code changes using Git and hosted on GitHub for collaboration.
-- **Build Tools**:: Set up using Vite for a fast development environment.
+- **Version Control**: Managed code changes using Git and hosted on GitHub for collaboration.
+- **Build Tools**: Set up using Vite for a fast development environment.
 
 ## How to install and run Application
 

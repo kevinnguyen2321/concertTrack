@@ -8,7 +8,7 @@ Welcome to ConcertTrack, where tracking concerts just became easier. This app is
 
 Tired of going to a ton of concerts? Who am I kidding—going to concerts is never tiring! Let me rephrase the question: tired of going to tons of concerts and not being able to track how many concerts you attend as a frequent concert-goer? Well, this is the app for you. With ConcertTrack, you can easily keep track of past concerts, add new ones, and organize your experiences in one convenient place.
 
-## How does ConcertTrack work?
+## Features
 
 ConcertTrack offers a seamless user experience for managing your concert history:
 

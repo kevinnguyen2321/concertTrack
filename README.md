@@ -22,7 +22,7 @@ ConcertTrack offers a seamless user experience for managing your concert history
 
 - **Community Tab**: Explore the "Community" section to see other users' concert experiences, reviews, and ratings. You can also comment on these posts, share your thoughts, and engage with fellow concert-goers.
 
-## How was ConcertTrack developed
+## How was ConcertTrack developed?
 
 ConcertTrack was developed using modern front-end technologies:
 

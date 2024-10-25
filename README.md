@@ -89,6 +89,17 @@ git clone git@github.com:kevinnguyen2321/concertTrack.git
     cd concertTrack
   ```
 - Then start the development server:
+
   ```bash
    npm run dev
   ```
+
+  ## Media
+
+  [Demo of ConcertTrack](https://www.loom.com/share/4970b7079009437cb326704744786860)
+
+  ![Homepage Screenshot](./src/assets/homepage.PNG)
+  <br><br>
+  ![Myshows Screenshot](./src/assets/myshows.PNG)
+  <br><br>
+  ![Community Screenshot](./src/assets/community.PNG)

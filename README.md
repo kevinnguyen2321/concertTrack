@@ -36,6 +36,16 @@ ConcertTrack was developed using modern front-end technologies:
 - **Version Control**: Managed code changes using Git and hosted on GitHub for collaboration.
 - **Build Tools**: Set up using Vite for a fast development environment.
 
+  ## Media
+
+  [Demo of ConcertTrack](https://www.loom.com/share/4970b7079009437cb326704744786860)
+
+  ![Homepage Screenshot](./src/assets/homepage.PNG)
+  <br><br>
+  ![Myshows Screenshot](./src/assets/myshows.PNG)
+  <br><br>
+  ![Community Screenshot](./src/assets/community.PNG)
+
 ## How to install and run Application
 
 To get ConcertTrack up and running on your local machine:
@@ -66,40 +76,30 @@ git clone git@github.com:kevinnguyen2321/concertTrack.git
 
 5. **Navigate to JSON server directory**
 
-   ```bash
-   cd front-end-capstone-api
-   ```
+```bash
+cd front-end-capstone-api
+```
 
 6. **Install JSON Server Dependencies**
 
-   ```bash
-   npm install
-   ```
+```bash
+npm install
+```
 
 7. **Start JSON server:\***
 
-   ```bash
-   json-server database.json -p 8088 --watch
-   ```
+```bash
+json-server database.json -p 8088 --watch
+```
 
 8. **Start the main app development server:**
 
 - Open a new terminal window and go back to main ConcertTrack project directory:
-  ```bash
-    cd concertTrack
-  ```
+```bash
+cd concertTrack
+```
 - Then start the development server:
 
-  ```bash
-   npm run dev
-  ```
-
-  ## Media
-
-  [Demo of ConcertTrack](https://www.loom.com/share/4970b7079009437cb326704744786860)
-
-  ![Homepage Screenshot](./src/assets/homepage.PNG)
-  <br><br>
-  ![Myshows Screenshot](./src/assets/myshows.PNG)
-  <br><br>
-  ![Community Screenshot](./src/assets/community.PNG)
+```bash
+npm run dev
+```
